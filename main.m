@@ -41,15 +41,22 @@ tracts = fg2Array(fg_classified);
 
 mkdir('tracts');
 
+
+
 % Make colors for the tracts
 cm = parula(length(tracts));
 for it = 1:length(tracts)
    tract.name   = tracts(it).name;
+   all_tracts(it).name = tracts(it).name;
+   all_tracts(it).color = cm(it,:);
    tract.color  = cm(it,:);
    tract.coords = tracts(it).fibers;
    savejson('', tract, fullfile('tracts',sprintf('%i.json',it)));
+   all_tracts(it).filename = sprintf('%i.json',it);
    clear tract
 end
+
+savejson('', all_tracts, fullfile('tracts/tracts.json'));
 
 % saving text file with number of fibers per tracts
 tract_info = cell(length(fg_classified), 2);
