@@ -1,0 +1,22 @@
+{
+  "name": "app-wmaSeg",
+  "version": "1.0.0",
+  "description": "classifies streamlines into tracts",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start.sh",
+    "stop": "stop.sh",
+    "status": "status.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brain-life/app-wmaSeg"
+  },
+  "author": "Daniel Bullock  <dnbulloc@indiana.edu>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brain-life/app-wmaSeg/issues"
+  },
+  "homepage": "https://github.com/brain-life/app-wmaSeg#readme"
+}

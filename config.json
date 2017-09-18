@@ -1,0 +1,5 @@
+{
+	"freesurfer": path/to/fs,
+	"life": path/to/life,
+	"dtiinit": path/to/dt6
+}
