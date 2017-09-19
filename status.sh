@@ -33,7 +33,7 @@ if [ -f jobid ]; then
     fi
     if [ $jobstate == "R" ]; then
         subid=$(cat jobid | cut -d '.' -f 1)
-        logname="wmaSeg.o$subid.log"
+        logname="stdout.$subid.*.log"
         tail -1 $logname
         exit 0
     fi
