@@ -23,7 +23,7 @@ config = loadjson('config.json');
 load(config.fe);
 
 % point to dt6 file
-dt6 = fullfile(config.dt6,'/dti_trilin/dt6.mat')
+dt6 = fullfile(config.dt6,'/dti/dt6.mat')
 
 % run wma
 classification = wma_wrapper(fe, dt6, config.freesurfer);
