@@ -46,8 +46,8 @@ mkdir('tracts');
 % Make colors for the tracts
 cm = parula(length(tracts));
 for it = 1:length(tracts)
-   tract.name   = tracts(it).name;
-   all_tracts(it).name = tracts(it).name;
+   tract.name   = strrep(tracts(it).name, '_', ' ');
+   all_tracts(it).name = strrep(tracts(it).name, '_', ' ');
    all_tracts(it).color = cm(it,:);
    tract.color  = cm(it,:);
    tract.coords = tracts(it).fibers;
