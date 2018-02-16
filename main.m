@@ -1,25 +1,28 @@
 function [] = main()
 
-switch getenv('ENV')
-    case 'IUHPC'
-        disp('loading paths for IUHPC')
-        addpath(genpath('/N/u/brlife/git/encode'))
-        addpath(genpath('/N/u/brlife/git/vistasoft'))
-        addpath(genpath('/N/u/brlife/git/jsonlab'))
-        addpath(genpath('/N/u/brlife/git/wma'))
-    case 'VM'
-        disp('loading paths for Jetstream VM')
-        addpath(genpath('/usr/local/encode'))
-        addpath(genpath('/usr/local/vistasoft'))
-        addpath(genpath('/usr/local/jsonlab'))
-        addpath(genpath('/usr/local/wma'))
+if ~isdeployed
+    switch getenv('ENV')
+        case 'IUHPC'
+            disp('loading paths for IUHPC')
+            addpath(genpath('/N/u/brlife/git/encode'))
+            addpath(genpath('/N/u/brlife/git/vistasoft'))
+            addpath(genpath('/N/u/brlife/git/jsonlab'))
+            addpath(genpath('/N/u/brlife/git/wma'))
+        case 'VM'
+            disp('loading paths for Jetstream VM')
+            addpath(genpath('/usr/local/encode'))
+            addpath(genpath('/usr/local/vistasoft'))
+            addpath(genpath('/usr/local/jsonlab'))
+            addpath(genpath('/usr/local/wma'))
+    end
 end
 
-
 % load my own config.json
-config = loadjson('config.json');
+config = loadjson('config.json')
 
 % Load an FE strcuture created by the sca-service-life
+
+%#function sptensor
 load(config.fe);
 
 % point to dt6 file
@@ -35,13 +38,11 @@ classification = wma_clearNonvalidClassifications(classification,fe);
 
 fg_classified = bsc_makeFGsFromClassification(classification, fe);
 
-save('output.mat','fg_classified', 'classification', '-v7.3');
+save('output.mat','fg_classified', 'classification');
 
 tracts = fg2Array(fg_classified);
 
 mkdir('tracts');
-
-
 
 % Make colors for the tracts
 cm = parula(length(tracts));
@@ -50,7 +51,12 @@ for it = 1:length(tracts)
    all_tracts(it).name = strrep(tracts(it).name, '_', ' ');
    all_tracts(it).color = cm(it,:);
    tract.color  = cm(it,:);
-   tract.coords = tracts(it).fibers;
+
+   %tract.coords = tracts(it).fibers;
+   %pick randomly up to 1000 fibers (pick all if there are less than 1000)
+   fiber_count = min(1000, numel(tracts(it).fibers));
+   tract.coords = tracts(it).fibers(randperm(fiber_count)); 
+   
    savejson('', tract, fullfile('tracts',sprintf('%i.json',it)));
    all_tracts(it).filename = sprintf('%i.json',it);
    clear tract
