@@ -26,12 +26,16 @@ config = loadjson('config.json')
 load(config.fe);
 
 % point to dt6 file
+%delete this for the new version, no need for it, because no AFQ
 dt6 = fullfile(config.dt6,'/dti/dt6.mat')
 
 % run wma
+%replace this with function at https://github.com/brain-life/wma
 classification = wma_wrapper(fe, dt6, config.freesurfer);
 
 %remove classified zero-weighted fibers
+%delete this in new version.  New version does this automatically if you pass in an fe.
+%basically you can just make two versions of this exactly the same and change the input from fe to fg
 classification = wma_clearNonvalidClassifications(classification,fe);
 
 % make fg_classified
