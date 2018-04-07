@@ -1,18 +1,14 @@
 #!/bin/bash
-#PBS -l nodes=1:ppn=8,walltime=2:00:00
+#PBS -l nodes=1:ppn=8,walltime=4:00:00
 #PBS -N wmaSeg
 #PBS -V
 
 rm -rf tracts
 
 #TODO..
-#module load singularity 2> /dev/null
-#singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
+module load singularity 2> /dev/null
+singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 
-module load matlab
-module load spm
-module load freesurfer
-time matlab -nodisplay -nosplash -r main
 
 if [ ! -s output.mat ];
 then

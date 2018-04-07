@@ -18,29 +18,20 @@ if ~isdeployed
 end
 
 % load my own config.json
-config = loadjson('config.json')
+config = loadjson('config.json');
 
 % Load an FE strcuture created by the sca-service-life
 
 %#function sptensor
-load(config.fe);
-
-% point to dt6 file
-%4/6/18 - delete this for the new version, no need for it, because no AFQ
-dt6 = fullfile(config.dt6,'/dti/dt6.mat')
+%load(config.fe);
 
 % run wma
-%4/6/18 - replace this with function at https://github.com/brain-life/wma
-classification = wma_wrapper(fe, dt6, config.freesurfer);
 
-%remove classified zero-weighted fibers
-%4/6/18 - delete this in new version.  New version does this automatically if you pass in an fe.
-%basically you can just make two versions of this exactly the same and change the input from fe to fg
-classification = wma_clearNonvalidClassifications(classification,fe);
+classification = wma_wrapperDev(config.wbfg,config.freesurfer);
 
 % make fg_classified
 
-fg_classified = bsc_makeFGsFromClassification(classification, fe);
+fg_classified = bsc_makeFGsFromClassification(classification, config.wbfg);
 
 save('output.mat','fg_classified', 'classification');
 
@@ -68,13 +59,26 @@ end
 
 savejson('', all_tracts, fullfile('tracts/tracts.json'));
 
+
 % saving text file with number of fibers per tracts
 tract_info = cell(length(fg_classified), 2);
 
+possible_error = 0;
 for i = 1:length(fg_classified)
     tract_info{i,1} = fg_classified(i).name;
     tract_info{i,2} = length(fg_classified(i).fibers);
+    if length(fg_classified(i).fibers) < 20
+        possible_error=1;
+    end
 end
+
+if possible_error==1
+    results.quality_check = 'ERROR: Some tracts have less than 20 streamlines. Check quality of data!';
+else
+    results.quality_check = 'Data should be fine, but please view to double check';
+end
+savejson('', results, 'product.json');
+
 
 T = cell2table(tract_info);
 T.Properties.VariableNames = {'Tracts', 'FiberCount'};
