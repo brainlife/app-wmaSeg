@@ -25,9 +25,10 @@ config = loadjson('config.json');
 %#function sptensor
 %load(config.fe);
 
+fsdir = 'freesurfer';
 % run wma
 
-classification = wma_wrapperDev(config.wbfg,config.freesurfer);
+classification = wma_wrapperDev(config.wbfg,fsdir);
 
 % make fg_classified
 
