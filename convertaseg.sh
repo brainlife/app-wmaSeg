@@ -7,3 +7,5 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 
 mri_convert $fsurfer/mri/aparc.a2009s+aseg.mgz  freesurfer/mri/aparc.a2009s+aseg.nii.gz
+
+mri_convert $fsurfer/mri/aparc+aseg.mgz  freesurfer/mri/aparc+aseg.nii.gz
