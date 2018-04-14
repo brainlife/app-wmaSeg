@@ -45,7 +45,8 @@ tracts = fg2Array(fg_classified);
 mkdir('tracts');
 
 % Make colors for the tracts
-cm = parula(length(tracts));
+%cm = parula(length(tracts));
+cm = distinguishable_colors(length(tracts));
 for it = 1:length(tracts)
    tract.name   = strrep(tracts(it).name, '_', ' ');
    all_tracts(it).name = strrep(tracts(it).name, '_', ' ');
