@@ -69,8 +69,10 @@ savejson('', all_tracts, fullfile('tracts/tracts.json'));
 % saving text file with number of fibers per tracts
 tract_info = cell(length(fg_classified), 2);
 
+fibercounts = zeros(1, length(fg_classified));
 possible_error = 0;
 for i = 1:length(fg_classified)
+    fibercounts(i) = length(fg_classified(i).fibers);
     tract_info{i,1} = fg_classified(i).name;
     tract_info{i,2} = length(fg_classified(i).fibers);
     if length(fg_classified(i).fibers) < 20
@@ -78,20 +80,37 @@ for i = 1:length(fg_classified)
     end
 end
 
-if possible_error==1
-    results.quality_check = 'ERROR: Some tracts have less than 20 streamlines. Check quality of data!';
-else
-    results.quality_check = 'Data should be fine, but please view to double check';
-end
-savejson('', results, 'product.json');
-
-
 T = cell2table(tract_info);
 T.Properties.VariableNames = {'Tracts', 'FiberCount'};
 
 writetable(T,'output_fibercounts.txt')
 
+boxplot = make_plotly_data(fibercounts, 'Fiber Counts', 'Number of Fibers');
+product = {boxplot};
+if possible_error == 1
+    message = struct;
+    message.type = 'error';
+    message.msg = 'ERROR: Some tracts have less than 20 streamlines. Check quality of data!';
+    product = {boxplot, message};
+end
+savejson('brainlife', product, 'product.json');
+
 end
 
+%% make plotly plot data
+function out = make_plotly_data(values, plotTitle, axisTitle)
 
+out = struct;
 
+out.data = struct;
+out.layout = struct;
+out.type = 'plotly';
+
+out.data.x = values;
+out.data.type = 'box';
+out.data.name = axisTitle;
+out.data = {out.data};
+
+out.layout.title = plotTitle;
+
+end

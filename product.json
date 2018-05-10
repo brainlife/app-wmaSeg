@@ -1,0 +1,21 @@
+{
+	"brainlife": [
+		{
+			"data": [
+				{
+					"x": [68,76,75,40,66,18,71,4,28,5],
+					"type": "box",
+					"name": "Number of Fibers"
+				}
+			],
+			"layout": {
+				"title": "Fiber Counts"
+			},
+			"type": "plotly"
+		},
+		{
+			"type": "error",
+			"msg": "ERROR: Some tracts have less than 20 streamlines. Check quality of data!"
+		}
+	]
+}
