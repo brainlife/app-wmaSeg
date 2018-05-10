@@ -1,0 +1,80 @@
+Tracts,FiberCount
+Corpus Callosum,390
+Forceps Major,44
+Forceps Minor,205
+Left IFOF,15
+Right IFOF,6
+Left Cingulum1,2
+Right Cingulum1,0
+Left Cingulum2,1
+Right Cingulum2,15
+Left Cingulum3,48
+Right Cingulum3,50
+Left SFOF,0
+Right SFOF,4
+Left Uncinate,84
+Right Uncinate,33
+Left Arcuate,27
+Right Arcuate,5
+Left cortico-spinal,366
+Right cortico-spinal,337
+Left anterior thalamic,115
+Right anterior thalamic,154
+Left inferior thalamic,63
+Right inferior thalamic,11
+Left superior thalamic,134
+Right superior thalamic,206
+Left posterior thalamic,38
+Right posterior thalamic,25
+Left VOF,13
+Right VOF,29
+Left AntVOF,2
+Right AntVOF,1
+Left VisionU,9
+Right VisionU,11
+Left OccipitalU,3
+Right OccipitalU,2
+Left Thalamico-spinal,95
+Right Thalamico-spinal,85
+Left pArc,204
+Right pArc,148
+Left TPC,48
+Right TPC,24
+Left MdLF-SPL,18
+Right MdLF-SPL,6
+Left MdLF-Ang,30
+Right MdLF-Ang,5
+Left SLF1,27
+Right SLF1,41
+Left SLF2,5
+Right SLF2,8
+Left SLF3,14
+Right SLF3,8
+Left ILF,66
+Right ILF,46
+Left Aslant,23
+Right Aslant,21
+Right Lenti2ceb,2
+Left Lenti2ceb,5
+Right Red2Ceb1,7
+Left Red2Ceb1,2
+Right Red2Ceb2,20
+Left Red2Ceb2,8
+Right Thal2ceb,12
+Left Thal2ceb,9
+Right ContraCorticoPontine,4
+Left ContraCorticoPontine,1
+Right ContraFrontoPontine,12
+Left ContraFrontoPontine,6
+Right IpsiCorticoPontine,16
+Left IpsiCorticoPontine,7
+Right IpsiFrontoPontine,37
+Left IpsiFrontoPontine,15
+Left Meyers Loop,8
+Right Meyers Loop,4
+Left Baums Loop,2
+Right Baums Loop,0
+Left Optic Unclassified,1
+Right Optic Unclassified,8
+Left Optic Accesory,1
+Right Optic Accesory,0

@@ -1,0 +1,131 @@
+{
+	"brainlife": [
+		{
+			"data": [
+				{
+					"x": [
+						"Corpus Callosum",
+						"Forceps Major",
+						"Forceps Minor",
+						"IFOF",
+						"Cingulum1",
+						"Cingulum2",
+						"Cingulum3",
+						"SFOF",
+						"Uncinate",
+						"Arcuate",
+						"cortico-spinal",
+						"anterior thalamic",
+						"inferior thalamic",
+						"superior thalamic",
+						"posterior thalamic",
+						"VOF",
+						"AntVOF",
+						"VisionU",
+						"OccipitalU",
+						"Thalamico-spinal",
+						"pArc",
+						"TPC",
+						"MdLF-SPL",
+						"MdLF-Ang",
+						"SLF1",
+						"SLF2",
+						"SLF3",
+						"ILF",
+						"Aslant",
+						"Lenti2ceb",
+						"Red2Ceb1",
+						"Red2Ceb2",
+						"Thal2ceb",
+						"ContraCorticoPontine",
+						"ContraFrontoPontine",
+						"IpsiCorticoPontine",
+						"IpsiFrontoPontine",
+						"Meyers Loop",
+						"Baums Loop",
+						"Optic Unclassified",
+						"Optic Accesory"
+					],
+					"y": [390,44,205,15,2,1,48,0,84,27,366,115,63,134,38,13,2,9,3,95,204,48,18,30,27,5,14,66,23,5,2,8,9,1,6,7,15,8,2,1,1],
+					"type": "bar",
+					"name": "Left Tracts",
+					"marker": {
+						"color": "rgb(49,130,189)"
+					}
+				},
+				{
+					"x": [
+						"IFOF",
+						"Cingulum1",
+						"Cingulum2",
+						"Cingulum3",
+						"SFOF",
+						"Uncinate",
+						"Arcuate",
+						"cortico-spinal",
+						"anterior thalamic",
+						"inferior thalamic",
+						"superior thalamic",
+						"posterior thalamic",
+						"VOF",
+						"AntVOF",
+						"VisionU",
+						"OccipitalU",
+						"Thalamico-spinal",
+						"pArc",
+						"TPC",
+						"MdLF-SPL",
+						"MdLF-Ang",
+						"SLF1",
+						"SLF2",
+						"SLF3",
+						"ILF",
+						"Aslant",
+						"Lenti2ceb",
+						"Red2Ceb1",
+						"Red2Ceb2",
+						"Thal2ceb",
+						"ContraCorticoPontine",
+						"ContraFrontoPontine",
+						"IpsiCorticoPontine",
+						"IpsiFrontoPontine",
+						"Meyers Loop",
+						"Baums Loop",
+						"Optic Unclassified",
+						"Optic Accesory"
+					],
+					"y": [6,0,15,50,4,33,5,337,154,11,206,25,29,1,11,2,85,148,24,6,5,41,8,8,46,21,2,7,20,12,4,12,16,37,4,0,8,0],
+					"type": "bar",
+					"name": "Right Tracts",
+					"marker": {
+						"color": "rgb(204, 204, 204)"
+					}
+				}
+			],
+			"layout": {
+				"title": "Number of Fibers",
+				"xaxis": {
+					"tickangle": -45
+				},
+				"barmode": "group"
+			}
+		},
+		{
+			"data": [
+				{
+					"x": [390,44,205,15,6,2,0,1,15,48,50,0,4,84,33,27,5,366,337,115,154,63,11,134,206,38,25,13,29,2,1,9,11,3,2,95,85,204,148,48,24,18,6,30,5,27,41,5,8,14,8,66,46,23,21,2,5,7,2,20,8,12,9,4,1,12,6,16,7,37,15,8,4,2,0,1,8,1,0],
+					"type": "box",
+					"name": "Number of Fibers"
+				}
+			],
+			"layout": {
+				"title": "Fiber Counts"
+			},
+			"type": "plotly"
+		},
+		{
+			"type": "error",
+			"msg": "ERROR: Some tracts have less than 20 streamlines. Check quality of data!"
+		}
+	]
+}
