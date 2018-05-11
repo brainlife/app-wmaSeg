@@ -7,8 +7,11 @@ cat > build.m <<END
 addpath(genpath('/N/u/brlife/git/encode'))
 addpath(genpath('/N/u/brlife/git/vistasoft'))
 addpath(genpath('/N/u/brlife/git/jsonlab'))
-addpath(genpath('/N/u/brlife/git/wma'))
 addpath(genpath('/N/soft/mason/SPM/spm8'))
+
+addpath(genpath('/N/u/kitchell/Karst/Applications/mba'))
+addpath(genpath('/N/dc2/projects/lifebid/code/kitchell/wma'))
+
 mcc -m -R -nodisplay -d compiled main
 exit
 END
