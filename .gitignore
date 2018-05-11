@@ -1,2 +1,6 @@
 *~
 config.json
+product.json
+output.mat
+output_fibercounts.txt
+tracts
