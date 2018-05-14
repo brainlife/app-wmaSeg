@@ -56,6 +56,8 @@ end
 savejson('', all_tracts, fullfile('tracts/tracts.json'));
 
 % save product.json information
+
+% bar graph
 tract_info = cell(length(fg_classified), 2);
 fibercounts = zeros(1, length(fg_classified));
 possible_error = 0;
@@ -148,13 +150,13 @@ barlayout.barmode = 'group';
 barplot = struct;
 barplot.data = bardata;
 barplot.layout = barlayout;
+barplot.type = 'plotly';
 
 T = cell2table(tract_info);
 T.Properties.VariableNames = {'Tracts', 'FiberCount'};
 
 writetable(T, 'output_fibercounts.txt');
 
-% bar graph
 
 % box plot
 boxplot = make_plotly_data(fibercounts, 'Fiber Counts', 'Number of Fibers');
