@@ -15,13 +15,13 @@ end
 % load my own config.json
 config = loadjson('config.json');
 
-% Load an FE strcuture created by the sca-service-life
-
+% magic directive to load sptensor structure (following is not a comment!)
 %#function sptensor
+
 %load(config.fe);
 
-fsdir = 'freesurfer';
-% run wma
+%fsdir = 'freesurfer';
+fsdir = config.freesurfer;
 
 classification = wma_wrapperDev(config.wbfg,fsdir);
 
