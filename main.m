@@ -20,10 +20,8 @@ config = loadjson('config.json');
 
 %load(config.fe);
 
-%fsdir = 'freesurfer';
-fsdir = config.freesurfer;
-
-classification = wma_wrapperDev(config.wbfg,fsdir);
+%not the freesurfer input directory, but freesurfer directory locally created that contains aparc+aseg.nii.gz
+classification = wma_wrapperDev(config.wbfg,'freesurfer');
 
 % make fg_classified
 
