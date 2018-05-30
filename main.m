@@ -35,12 +35,14 @@ mkdir('tracts');
 
 % Make colors for the tracts
 %cm = parula(length(tracts));
-cm = distinguishable_colors(length(tracts));
+%cm = distinguishable_colors(length(tracts));
 for it = 1:length(tracts)
    tract.name   = strrep(tracts(it).name, '_', ' ');
    all_tracts(it).name = strrep(tracts(it).name, '_', ' ');
-   all_tracts(it).color = cm(it,:);
-   tract.color  = cm(it,:);
+   %all_tracts(it).color = cm(it,:);
+   all_tracts(it).color = tracts(it).colorRgb;
+   %tract.color  = cm(it,:);
+   tract.color = tracts(it).colorRgb;
 
    %tract.coords = tracts(it).fibers;
    %pick randomly up to 1000 fibers (pick all if there are less than 1000)
