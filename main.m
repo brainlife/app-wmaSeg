@@ -8,7 +8,6 @@ if ~isdeployed
     addpath(genpath('/N/soft/mason/SPM/spm8'))
 
     addpath(genpath('/N/u/kitchell/Karst/Applications/mba'))
-    %addpath(genpath('/N/dc2/projects/lifebid/code/kitchell/wma'))
     addpath(genpath('/N/u/brlife/git/wma'))
 end
 
@@ -18,12 +17,13 @@ config = loadjson('config.json');
 % magic directive to load sptensor structure (following is not a comment!)
 %#function sptensor
 
-%load(config.fe);
-
 %not the freesurfer input directory, but freesurfer directory locally created that contains aparc+aseg.nii.gz
 classification = wma_wrapperDev(config.wbfg,'freesurfer');
 
-% make fg_classified
+if isprop(config,'tracts')
+   disp(['limiting tracts to ' config.tracts])
+   classification = bsc_extractTractsByName(classification,strsplit(config.tracts));
+end
 
 fg_classified = bsc_makeFGsFromClassification(classification, config.wbfg);
 
