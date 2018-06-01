@@ -25,9 +25,9 @@ if isprop(config,'tracts')
    classification = bsc_extractTractsByName(classification,strsplit(config.tracts));
 end
 
-tracts = bsc_makeFGsFromClassification(classification, config.wbfg);
+fg_classified = bsc_makeFGsFromClassification(classification, config.wbfg);
 
-save('output.mat','fg_classified', 'classification');
+save('output.mat', 'fg_classified', 'classification');
 tracts = fg_classified;
 %tracts = fg2Array(fg_classified);
 
