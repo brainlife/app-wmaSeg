@@ -25,11 +25,11 @@ if isprop(config,'tracts')
    classification = bsc_extractTractsByName(classification,strsplit(config.tracts));
 end
 
-fg_classified = bsc_makeFGsFromClassification(classification, config.wbfg);
+tracts = bsc_makeFGsFromClassification(classification, config.wbfg);
 
 save('output.mat','fg_classified', 'classification');
-
-tracts = fg2Array(fg_classified);
+tracts = fg_classified;
+%tracts = fg2Array(fg_classified);
 
 mkdir('tracts');
 
@@ -39,15 +39,13 @@ mkdir('tracts');
 for it = 1:length(tracts)
    tract.name   = strrep(tracts(it).name, '_', ' ');
    all_tracts(it).name = strrep(tracts(it).name, '_', ' ');
-   %all_tracts(it).color = cm(it,:);
-   all_tracts(it).color = tracts(it).colorRgb;
-   %tract.color  = cm(it,:);
-   tract.color = tracts(it).colorRgb;
+   all_tracts(it).color = tracts(it).fg.colorRgb;
+   tract.color = tracts(it).fg.colorRgb;
 
    %tract.coords = tracts(it).fibers;
    %pick randomly up to 1000 fibers (pick all if there are less than 1000)
-   fiber_count = min(1000, numel(tracts(it).fibers));
-   tract.coords = tracts(it).fibers(randperm(fiber_count)); 
+   fiber_count = min(1000, numel(tracts(it).fg.fibers));
+   tract.coords = tracts(it).fg.fibers(randperm(fiber_count)); 
    
    savejson('', tract, fullfile('tracts',sprintf('%i.json',it)));
    all_tracts(it).filename = sprintf('%i.json',it);
@@ -56,18 +54,15 @@ end
 
 savejson('', all_tracts, fullfile('tracts/tracts.json'));
 
-% save product.json information
-
-% bar graph
-tract_info = cell(length(fg_classified), 2);
-fibercounts = zeros(1, length(fg_classified));
+tract_info = cell(length(tracts), 2);
+fibercounts = zeros(1, length(tracts));
 possible_error = 0;
 num_left_tracts = 0;
 num_right_tracts = 0;
 
-for i = 1 : length(fg_classified)
-    name = fg_classified(i).name;
-    num_fibers = length(fg_classified(i).fibers);
+for i = 1 : length(tracts)
+    name = tracts(i).name;
+    num_fibers = length(tracts(i).fg.fibers);
     
     fibercounts(i) = num_fibers;
     tract_info{i,1} = name;
@@ -93,9 +88,9 @@ right_tract_ys = zeros([1, num_right_tracts]);
 left_tract_idx = 1;
 right_tract_idx = 1;
 
-for i = 1 : length(fg_classified)
-    name = fg_classified(i).name;
-    num_fibers = length(fg_classified(i).fibers);
+for i = 1 : length(tracts)
+    name = tracts(i).name;
+    num_fibers = length(tracts(i).fg.fibers);
     basename = name;
     
     if startsWith(basename, 'Right ')
@@ -123,9 +118,16 @@ for i = 1 : length(fg_classified)
     end
 end
 
-bar1 = struct;
-bar2 = struct;
+T = cell2table(tract_info);
+T.Properties.VariableNames = {'Tracts', 'FiberCount'};
+writetable(T, 'output_fibercounts.txt');
 
+%number of fibers graph
+barplot = struct;
+barplot.type = 'plotly';
+barplot.name = 'Number of Fibers';
+
+bar1 = struct;
 bar1.x = left_tract_xs;
 bar1.y = left_tract_ys;
 bar1.type = 'bar';
@@ -133,6 +135,7 @@ bar1.name = 'Left Tracts';
 bar1.marker = struct;
 bar1.marker.color = 'rgb(49,130,189)';
 
+bar2 = struct;
 bar2.x = right_tract_xs;
 bar2.y = right_tract_ys;
 bar2.type = 'bar';
@@ -140,27 +143,28 @@ bar2.name = 'Right Tracts';
 bar2.marker = struct;
 bar2.marker.color = 'rgb(204, 204, 204)';
 
-bardata = {bar1, bar2};
+barplot.data = {bar1, bar2};
+
 barlayout = struct;
-barlayout.title = 'Number of Fibers';
 barlayout.xaxis = struct;
 barlayout.xaxis.tickfont = struct;
 barlayout.xaxis.tickfont.size = 8;
-
 barlayout.barmode = 'group';
-barplot = struct;
-barplot.data = bardata;
 barplot.layout = barlayout;
-barplot.type = 'plotly';
 
-T = cell2table(tract_info);
-T.Properties.VariableNames = {'Tracts', 'FiberCount'};
+% fiber count graph
+boxplot = struct;
+boxplot.type = 'plotly';
+boxplot.name = 'Fiber Counts';
 
-writetable(T, 'output_fibercounts.txt');
+box1 = struct;
+box1.x = fibercounts;
+box1.type = 'box';
+box1.name = 'Fibers';
 
+boxplot.data = {box1};
 
-% box plot
-boxplot = make_plotly_data(fibercounts, 'Fiber Counts', 'Number of Fibers');
+% output product.json
 product = {barplot, boxplot};
 if possible_error == 1
     message = struct;
@@ -172,20 +176,3 @@ savejson('brainlife', product, 'product.json');
 
 end
 
-%% make plotly plot data
-function out = make_plotly_data(values, plotTitle, axisTitle)
-
-out = struct;
-
-out.data = struct;
-out.layout = struct;
-out.type = 'plotly';
-
-out.data.x = values;
-out.data.type = 'box';
-out.data.name = axisTitle;
-out.data = {out.data};
-
-out.layout.title = plotTitle;
-
-end
