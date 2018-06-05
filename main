@@ -6,14 +6,15 @@
 rm -rf tracts
 mkdir -p freesurfer/mri
 
-echo "converting aparc.a2009+aseg file to nifti"
-time singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && ./convertaseg.sh"
+if [ ! -f freesurfer/mri/aparc+aseg.nii.gz ]; then
+    echo "converting aparc.a2009+aseg file to nifti"
+    time singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && ./convertaseg.sh"
+fi
 
 echo "running segmentation"
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 
-if [ ! -s output.mat ];
-then
+if [ ! -s output.mat ]; then
 	echo "output missing"
 	exit 1
 fi

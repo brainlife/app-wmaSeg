@@ -12,7 +12,7 @@ if ~isdeployed
 end
 
 % load my own config.json
-config = loadjson('config.json');
+config = loadjson('config.json')
 
 % magic directive to load sptensor structure (following is not a comment!)
 %#function sptensor
@@ -20,7 +20,7 @@ config = loadjson('config.json');
 %not the freesurfer input directory, but freesurfer directory locally created that contains aparc+aseg.nii.gz
 classification = wma_wrapperDev(config.wbfg,'freesurfer');
 
-if isprop(config,'tracts')
+if isfield(config,'tracts')
    disp(['limiting tracts to ' config.tracts])
    classification = bsc_extractTractsByName(classification,strsplit(config.tracts));
 end
