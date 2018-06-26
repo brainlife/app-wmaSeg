@@ -30,7 +30,6 @@ fg_classified = bsc_makeFGsFromClassification(classification, config.wbfg);
 
 save('output.mat', 'fg_classified', 'classification');
 tracts = fg_classified;
-%tracts = fg2Array(fg_classified);
 
 mkdir('tracts');
 
@@ -40,13 +39,13 @@ mkdir('tracts');
 for it = 1:length(tracts)
    tract.name   = strrep(tracts(it).name, '_', ' ');
    all_tracts(it).name = strrep(tracts(it).name, '_', ' ');
-   all_tracts(it).color = tracts(it).fg.colorRgb;
-   tract.color = tracts(it).fg.colorRgb;
+   all_tracts(it).color = tracts(it).colorRgb;
+   tract.color = tracts(it).colorRgb;
 
    %tract.coords = tracts(it).fibers;
    %pick randomly up to 1000 fibers (pick all if there are less than 1000)
-   fiber_count = min(1000, numel(tracts(it).fg.fibers));
-   tract.coords = tracts(it).fg.fibers(randperm(fiber_count)); 
+   fiber_count = min(1000, numel(tracts(it).fibers));
+   tract.coords = tracts(it).fibers(randperm(fiber_count)); 
    
    savejson('', tract, fullfile('tracts',sprintf('%i.json',it)));
    all_tracts(it).filename = sprintf('%i.json',it);
@@ -63,7 +62,7 @@ num_right_tracts = 0;
 
 for i = 1 : length(tracts)
     name = tracts(i).name;
-    num_fibers = length(tracts(i).fg.fibers);
+    num_fibers = length(tracts(i).fibers);
     
     fibercounts(i) = num_fibers;
     tract_info{i,1} = name;
@@ -91,7 +90,7 @@ right_tract_idx = 1;
 
 for i = 1 : length(tracts)
     name = tracts(i).name;
-    num_fibers = length(tracts(i).fg.fibers);
+    num_fibers = length(tracts(i).fibers);
     basename = name;
     
     if startsWith(basename, 'Right ')
