@@ -20,11 +20,12 @@ config = loadjson('config.json')
 %not the freesurfer input directory, but freesurfer directory locally created that contains aparc+aseg.nii.gz
 classification = wma_wrapperDev(config.wbfg,'freesurfer');
 
-if isfield(config,'tracts')
+if isfield(config,'tracts') && strlength(config.tracts) > 0
    disp(['limiting tracts to ' config.tracts])
    classification = bsc_extractTractsByName(classification,strsplit(config.tracts));
 end
 
+disp(['running classification', classification])
 fg_classified = bsc_makeFGsFromClassification(classification, config.wbfg);
 
 save('output.mat', 'fg_classified', 'classification');
