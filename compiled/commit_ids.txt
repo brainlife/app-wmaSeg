@@ -27,10 +27,10 @@ Date:   Fri Jan 13 17:07:45 2017 -0500
 
     Merge branch 'master' of https://github.com/francopestilli/mba
 /N/u/brlife/git/wma
-commit 51b7b03d3f8046e47091c17afde5f38b33724cca
-Author: Soichi Hayashi <hayashis@iu.edu>
-Date:   Tue Jun 26 15:37:33 2018 -0400
+commit 45b4673d5a1768a3345f531b7631174566921a5b
+Author: DanNBullock <dnbulloc@umail.iu.edu>
+Date:   Wed Jun 27 14:49:21 2018 -0400
 
     Update bsc_makeFGsFromClassification.m
     
-    re-mapping colorRgb from 0-1 to 0-255.
+    added catch for tracts with no streamlines
