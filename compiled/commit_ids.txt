@@ -27,8 +27,9 @@ Date:   Fri Jan 13 17:07:45 2017 -0500
 
     Merge branch 'master' of https://github.com/francopestilli/mba
 /N/u/brlife/git/wma
-commit 905b0197b02f878b05c38f972bb81e1f91489787
+commit 65c0a07587eaefd0957d57813ae4c26ce81dfb43
+Merge: 9d98fd7 b8fd07d
 Author: Soichi Hayashi <hayashis@iu.edu>
-Date:   Thu Jun 28 15:30:44 2018 -0400
+Date:   Mon Jul 2 18:15:14 2018 -0400
 
-    realized that color needs to be between 0.0 - 1.0
+    Merge branch 'master' of github.com:brain-life/wma
