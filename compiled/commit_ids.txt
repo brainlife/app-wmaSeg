@@ -27,9 +27,8 @@ Date:   Fri Jan 13 17:07:45 2017 -0500
 
     Merge branch 'master' of https://github.com/francopestilli/mba
 /N/u/brlife/git/wma
-commit 65c0a07587eaefd0957d57813ae4c26ce81dfb43
-Merge: 9d98fd7 b8fd07d
+commit 3d63994297d84fca405fa524c731959d0e0a12b7
 Author: Soichi Hayashi <hayashis@iu.edu>
-Date:   Mon Jul 2 18:15:14 2018 -0400
+Date:   Mon Jul 2 20:42:13 2018 -0400
 
-    Merge branch 'master' of github.com:brain-life/wma
+    merged other functions from Dan's merge utiliti
