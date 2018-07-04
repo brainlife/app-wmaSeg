@@ -27,8 +27,8 @@ Date:   Fri Jan 13 17:07:45 2017 -0500
 
     Merge branch 'master' of https://github.com/francopestilli/mba
 /N/u/brlife/git/wma
-commit 3d63994297d84fca405fa524c731959d0e0a12b7
-Author: Soichi Hayashi <hayashis@iu.edu>
-Date:   Mon Jul 2 20:42:13 2018 -0400
+commit 4fbbbcd83d7b8cac8b64fdee83bfa603644befd8
+Author: DanNBullock <dnbulloc@umail.iu.edu>
+Date:   Wed Jul 4 15:27:13 2018 -0400
 
-    merged other functions from Dan's merge utiliti
+    Add files via upload
