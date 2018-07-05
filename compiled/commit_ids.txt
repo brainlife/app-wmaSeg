@@ -27,8 +27,10 @@ Date:   Fri Jan 13 17:07:45 2017 -0500
 
     Merge branch 'master' of https://github.com/francopestilli/mba
 /N/u/brlife/git/wma
-commit 4fbbbcd83d7b8cac8b64fdee83bfa603644befd8
+commit b0c8e688ed7209dc5707bdaf0dbff69077e0eb5d
 Author: DanNBullock <dnbulloc@umail.iu.edu>
-Date:   Wed Jul 4 15:27:13 2018 -0400
+Date:   Thu Jul 5 17:12:21 2018 -0400
 
-    Add files via upload
+    Update bsc_reconcileClassifications.m
+    
+    Reports added for debugging purposes
