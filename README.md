@@ -5,6 +5,7 @@
 Automatically segment a tractogram into XX major white matter tracts.
 
 ### Authors
+- Daniel Bullock (dnbulloc@iu.edu)
 
 ### Contributors
 - Soichi Hayashi (hayashis@iu.edu)
