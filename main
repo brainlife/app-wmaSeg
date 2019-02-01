@@ -14,7 +14,7 @@ if [ ! -f freesurfer/mri/aparc+aseg.nii.gz ]; then
 fi
 
 echo "running segmentation"
-singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
+singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/wma_segMajTracks_BL
 
 if [ ! -s output.mat ]; then
 	echo "output missing"

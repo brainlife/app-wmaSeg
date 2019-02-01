@@ -1,15 +1,10 @@
-/N/u/brlife/git/encode
-commit c6d1d676f2739ef3fa43147128452fe5bbcad7cf
-Author: Cesar Caiafa <ccaiafa@gmail.com>
-Date:   Wed Sep 6 17:26:38 2017 -0400
-
-    batch Windows version debugged
 /N/u/brlife/git/vistasoft
-commit 7e4a5c58f79c8594a70892059e6259eaa8f6f378
-Author: Brian Wandell <wandell@stanford.edu>
-Date:   Thu Jul 5 16:25:28 2018 -0700
+commit cf75f1a8c037382d6a157f0a7b683a3fd424ee4c
+Merge: 8bea0b7 7e4a5c5
+Author: rokers <rokers@gmail.com>
+Date:   Fri Jul 13 17:13:01 2018 -0400
 
-    Data management
+    Merge branch 'master' of https://github.com/vistalab/vistasoft
 /N/u/brlife/git/jsonlab
 commit 474d8c824800b5f2109c08f989085cb961acdbe3
 Merge: ae7a5d9 38b24fb
@@ -19,18 +14,15 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     Merge pull request #41 from dasantonym/master
     
     added package.json to be able to intall via npm package manager
-/N/u/kitchell/Karst/Applications/mba
-commit 20f2d2bf19bda5ff6faaf9d783314f612e1f1021
-Merge: eadde9e 67e3b63
-Author: francopestilli <frakkopesto@gmail.com>
-Date:   Fri Jan 13 17:07:45 2017 -0500
+/N/u/brlife/git/wma_tools
+commit ace80fc27a937563e855352096ed9b6012345932
+Author: Daniel Bullock <dnbulloc@i16.red.uits.iu.edu>
+Date:   Thu Jan 31 19:24:40 2019 -0500
 
-    Merge branch 'master' of https://github.com/francopestilli/mba
-/N/u/brlife/git/wma
-commit b0c8e688ed7209dc5707bdaf0dbff69077e0eb5d
-Author: DanNBullock <dnbulloc@umail.iu.edu>
-Date:   Thu Jul 5 17:12:21 2018 -0400
+    FIXEd path specification
+/N/u/brlife/git/encode
+commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
+Author: Soichi Hayashi <hayashis@iu.edu>
+Date:   Tue Jan 22 10:14:41 2019 -0500
 
-    Update bsc_reconcileClassifications.m
-    
-    Reports added for debugging purposes
+    fixed the issue where fiber goes missing.
