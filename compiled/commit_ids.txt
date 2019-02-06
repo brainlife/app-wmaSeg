@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit 607110f1c40e850459dcee993b2f7e6b88826081
+commit 9653b769f8ded8287b33a445b6b5f5e8c09cf6e0
 Author: Daniel Bullock <dnbulloc@i31.red.uits.iu.edu>
-Date:   Tue Feb 5 18:37:30 2019 -0500
+Date:   Wed Feb 6 12:32:19 2019 -0500
 
-    more reporting to figure out classification issue
+    fixes and speedups to quality check code
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
