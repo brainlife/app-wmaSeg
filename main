@@ -20,3 +20,7 @@ if [ ! -s output.mat ]; then
 	echo "output missing"
 	exit 1
 fi
+
+echo "Generating surfaces/ vtk from aparc+aseg.mgz"
+time singularity exec -e docker://brainlife/docker-pythonvtk ./freesurfer2vtks.py
+
