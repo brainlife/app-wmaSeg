@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit f2783cf8329088f6c851a8e8629c01a25e681f0c
+commit 7820b3c8e3d31414b151a976262c43a584b134ff
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Fri Mar 1 10:55:25 2019 -0500
+Date:   Sun Mar 3 17:35:16 2019 -0500
 
-    switched to right category segmentation
+    fixed cerebellum segmentation, added a ton of reports on memory in segment
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
