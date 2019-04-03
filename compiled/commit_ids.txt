@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit 8b63f2bf94f7e29700adff4fb78f6d9a9dbf7ada
+commit 3b3d03562141f91273899e737987a9c863c1424d
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Mar 26 19:10:50 2019 -0400
+Date:   Wed Apr 3 17:46:10 2019 -0400
 
-    fixed minor seg issues
+    fixed issue with modify roi, widened aslant roi, used modify roi code fix to fix cingulum
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
