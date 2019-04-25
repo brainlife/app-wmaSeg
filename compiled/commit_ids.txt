@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit f546a28e3c89e25592eb07213c1860a0d08e5426
+commit e79c3632912b661d256dd097fb24f3b9dc2dbb5a
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Apr 23 16:13:18 2019 -0400
+Date:   Thu Apr 25 15:43:45 2019 -0400
 
-    fixed aslant, fixed slf (may take way longer), updated brainlife wrapper to use it
+    fixed several things for new wmc datatype, also added classificationfrommulti in order to deal with new app requirements
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
