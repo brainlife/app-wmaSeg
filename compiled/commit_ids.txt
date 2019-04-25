@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit 719777815922728b5cf45ce0625dcb0cdb8d104a
+commit f546a28e3c89e25592eb07213c1860a0d08e5426
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Apr 16 12:34:18 2019 -0400
+Date:   Tue Apr 23 16:13:18 2019 -0400
 
-    added endpoint decay function
+    fixed aslant, fixed slf (may take way longer), updated brainlife wrapper to use it
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
