@@ -12,7 +12,8 @@ time singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREE
 
 #TODO..
 
-jq '.["track"] = .wbfg | del(.wbfg)' config.json > config.json
+cp config.json config.original.json
+jq '.["track"] = .wbfg | del(.wbfg)' config.original.json > config.json
 
 singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 
