@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit a59e43381e667f8fddeb2c7a9b4cf99873a39852
+commit 603ea9d6c5206943bfeb4e7175f70b5cccc641ca
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue May 7 11:06:37 2019 -0400
+Date:   Wed May 8 15:21:10 2019 -0400
 
-    added mkdir to format for brainlife; fixed table creation for table averages
+    editing format for brainlife so it will do the heavy lifting when formatting the classification directory and output
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
