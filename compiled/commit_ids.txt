@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit 57105c7f1d249044aa46abe565685eb6f581d23c
+commit e40e201a9c0ce997b8c0e59431e320405df8bcb4
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Sun May 12 17:04:41 2019 -0400
+Date:   Mon May 13 09:32:34 2019 -0400
 
-    removed reverence to sub select wbfg
+    fixed interior wall stuff
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
