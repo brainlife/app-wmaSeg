@@ -23,7 +23,7 @@ addpath(genpath('/N/u/brlife/git/jsonlab'))
 addpath(genpath('/N/u/brlife/git/wma_tools'))
 addpath(genpath('/N/u/brlife/git/encode'))
 addpath(genpath('/N/soft/rhel7/mrtrix/3.0/mrtrix3/matlab'))
-mcc -m -R -nodisplay -d compiled wma_segMajTracksBins_BL
+mcc -m -R -nodisplay -d compiled wma_segMajTracks_BL_v2
 
 
 exit
