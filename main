@@ -3,6 +3,14 @@
 #PBS -N wmaSeg
 #PBS -V
 
+set -e
+set -x
+
+#show disk space availability
+df
+ls -la /tmp
+du -sh /tmp/.singu*
+
 rm -rf tracts
 mkdir -p freesurfer/mri
 
