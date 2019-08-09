@@ -7,6 +7,7 @@ set -x
 
 #show disk space availability
 df
+df -i
 ls -la /tmp
 du -sh /tmp/.singu*
 
