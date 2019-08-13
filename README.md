@@ -59,7 +59,7 @@ The relevant output for this application is a classification structure.  The cla
 
 #### Product.json
 
-Not relevant for this App as it does not geenrate processed data. 
+Not relevant for this App as it does not generate processed data. 
 
 ### Dependencies
 
