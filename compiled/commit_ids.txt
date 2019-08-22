@@ -15,11 +15,11 @@ Date:   Wed Sep 6 13:01:57 2017 -0400
     
     added package.json to be able to intall via npm package manager
 /N/u/brlife/git/wma_tools
-commit dbfc9024178c462f10ce33096a23a453549e5b82
+commit c073167320b92f1b795635e00407bf210d028485
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Sun May 19 18:04:24 2019 -0400
+Date:   Thu Aug 22 17:46:47 2019 -0400
 
-    fixed some plotting issues in code
+    added case tolerance for endpoint criteria, made inflate labels replace its input with appropraitely fixed parcellation, added new vof segmentation, implimented those changes in the bl wrapper
 /N/u/brlife/git/encode
 commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
 Author: Soichi Hayashi <hayashis@iu.edu>
