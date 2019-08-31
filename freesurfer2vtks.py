@@ -6,8 +6,8 @@ import os
 import json
 import pandas as pd
 
-if not os.path.exists("surfaces"):
-   os.makedirs("surfaces")
+if not os.path.exists("classification/surfaces"):
+   os.makedirs("classification/surfaces")
 
 #lut = pd.read_csv('FreeSurferColorLUT.csv')
 with open("labels.json") as f:
@@ -85,11 +85,11 @@ for label in labels:
 
     writer = vtk.vtkPolyDataWriter()
     writer.SetInputConnection(deci.GetOutputPort())
-    writer.SetFileName("surfaces/"+surf_name)
+    writer.SetFileName("classification/surfaces/"+surf_name)
     writer.Write()
 
 print("writing surfaces/index.json")
-with open("surfaces/index.json", "w") as outfile:
+with open("classification/surfaces/index.json", "w") as outfile:
     json.dump(index, outfile)
 
 print("all done")

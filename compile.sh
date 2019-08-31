@@ -10,29 +10,15 @@ echo "/N/u/brlife/git/jsonlab" >> $log
 (cd /N/u/brlife/git/jsonlab && git log -1) >> $log
 echo "/N/u/brlife/git/wma_tools" >> $log
 (cd /N/u/brlife/git/wma_tools && git log -1) >> $log
-echo "/N/u/brlife/git/encode" >> $log
-(cd /N/u/brlife/git/encode && git log -1) >> $log
-#echo "/N/u/brlife/git/encode" >> $log
-#(cd /N/u/brlife/git/encode && git log -1) >> $log
-#echo "/N/u/brlife/git/spm12" >> $log
-#(cd /N/u/brlife/git/spm12 && git log -1) >> $log
 
 cat > build.m <<END
-addpath(genpath('/N/u/brlife/git/vistasoft'))
 addpath(genpath('/N/u/brlife/git/jsonlab'))
+addpath(genpath('/N/u/brlife/git/vistasoft'))
 addpath(genpath('/N/u/brlife/git/wma_tools'))
-addpath(genpath('/N/u/brlife/git/encode'))
-addpath(genpath('/N/soft/rhel7/mrtrix/3.0/mrtrix3/matlab'))
-mcc -m -R -nodisplay -d compiled wma_segMajTracks_BL
-
-
-exit
+mcc -m -R -nodisplay -d compiled main
 END
 
 matlab -nodisplay -nosplash -r build && rm build.m
-
-#Doesn't work : (
-#matlab -nodisplay -nosplash -r "addpath(genpath('/N/u/brlife/git/wma_tools'));wma_makeFunctionListTxt('wma_segMajTracks_BL')"
 
 
 

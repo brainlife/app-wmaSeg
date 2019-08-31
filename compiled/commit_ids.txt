@@ -1,28 +1,18 @@
 /N/u/brlife/git/vistasoft
-commit cf75f1a8c037382d6a157f0a7b683a3fd424ee4c
-Merge: 8bea0b7 7e4a5c5
-Author: rokers <rokers@gmail.com>
-Date:   Fri Jul 13 17:13:01 2018 -0400
+commit 9953a8177f874941e10282a748af42eba71616cc
+Author: Soichi Hayashi <Soichi Hayashi>
+Date:   Fri Aug 30 23:00:16 2019 -0400
 
-    Merge branch 'master' of https://github.com/vistalab/vistasoft
+    added check to make sure all expected fibers are loaded
 /N/u/brlife/git/jsonlab
-commit 474d8c824800b5f2109c08f989085cb961acdbe3
-Merge: ae7a5d9 38b24fb
+commit 31eabbaab227d500786aaa472b9f5bbd9f082c61
 Author: Qianqian Fang <fangqq@gmail.com>
-Date:   Wed Sep 6 13:01:57 2017 -0400
+Date:   Tue Aug 20 12:20:38 2019 -0400
 
-    Merge pull request #41 from dasantonym/master
-    
-    added package.json to be able to intall via npm package manager
+    fix table transpose issue for uniform type tables
 /N/u/brlife/git/wma_tools
-commit dd2645087c1f8f9b05a22d31dca7c9021372420e
-Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Apr 30 18:31:11 2019 -0400
+commit 36eec2c861039e6588f85bee6330f91f17c5c2e4
+Author: Soichi Hayashi <Soichi Hayashi>
+Date:   Sat Aug 31 16:38:31 2019 -0400
 
-    refixed the fix
-/N/u/brlife/git/encode
-commit 538a73bc4f8b4d94545bc2dfe434fec55e0c7a95
-Author: Soichi Hayashi <hayashis@iu.edu>
-Date:   Tue Jan 22 10:14:41 2019 -0500
-
-    fixed the issue where fiber goes missing.
+    refactored atlasPath
