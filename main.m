@@ -9,14 +9,11 @@ end
 
 config = loadjson('config.json');
 wbfg = fgRead(config.track);
+atlas=niftiRead('aparc.a2009s+aseg.nii.gz');
 
 classificationOut=[];
 classificationOut.names=[];
 classificationOut.index=zeros(length(wbfg.fibers),1);
-
-atlas=niftiRead('aparc.a2009s+aseg.nii.gz');
-
-tic
 
 disp('creating priors')   
 [categoryPrior] =bsc_streamlineCategoryPriors_v6(wbfg,atlas,2);
@@ -70,10 +67,8 @@ classificationOut=bsc_reconcileClassifications(classificationOut,cingclassificat
 
 disp('12) wma_resortClassificationStruci --------------------------------------------------------------');
 classification= wma_resortClassificationStruc(classificationOut);
-toc
 
-disp('done segmentation.. generating vis output')
-
+disp('13) generate output --------------------------------------------------------------');
 mkdir('classification')
 save('classification/classification.mat','classification');
 
