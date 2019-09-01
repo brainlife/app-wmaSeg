@@ -6,3 +6,7 @@ output_fibercounts.txt
 tracts
 build.m
 freesurfer
+*.nii.gz
+license.txt
+test.m
+testdata

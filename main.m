@@ -2,10 +2,9 @@ function main()
 
 if ~isdeployed
     disp('adding paths');
-    %addpath(genpath('/N/soft/rhel7/spm/8')) %spm needs to be loaded before vistasoft as vistasoft provides anmean that works
     addpath(genpath('/N/u/brlife/git/jsonlab'))
-    addpath(genpath('/N/u/brlife/git/vistasoft'))
-    addpath(genpath('/N/u/brlife/git/wma_tools'))
+    addpath(genpath('/N/u/hayashis/git/vistasoft'))
+    addpath(genpath('/N/u/hayashis/git/wma_tools'))
 end
 
 config = loadjson('config.json');
@@ -15,49 +14,61 @@ classificationOut=[];
 classificationOut.names=[];
 classificationOut.index=zeros(length(wbfg.fibers),1);
 
-atlasPath='aparc.a2009s+aseg.nii.gz';
+atlas=niftiRead('aparc.a2009s+aseg.nii.gz');
 
 tic
 
 disp('creating priors')   
-[categoryPrior] =bsc_streamlineCategoryPriors_v6(wbfg,atlasPath,2);
+[categoryPrior] =bsc_streamlineCategoryPriors_v6(wbfg,atlas,2);
 [~, effPrior] =bsc_streamlineGeometryPriors(wbfg);
 disp('prior creation complete')
 
-[AntPostclassificationOut]=bsc_segmentAntPostTracts_v3(wbfg,atlasPath,categoryPrior,effPrior);
+disp('1) bsc_segmentAntPostTracts_v3--------------------------------------------------------------');
+[AntPostclassificationOut]=bsc_segmentAntPostTracts_v3(wbfg,atlas,categoryPrior,effPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,AntPostclassificationOut);
 
-[CCclassificationOut]=bsc_segmentCorpusCallosum_v3(wbfg,atlasPath,1,categoryPrior);
+disp('2) bsc_segmentCorpusCallosum_v3--------------------------------------------------------------');
+[CCclassificationOut]=bsc_segmentCorpusCallosum_v3(wbfg,atlas,1,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,CCclassificationOut);
 
-[SubCclassificationOut]=bsc_segmentSubCortical_v2(wbfg,atlasPath,categoryPrior,effPrior);
+disp('3) bsc_segmentSubCortical_v2--------------------------------------------------------------');
+[SubCclassificationOut]=bsc_segmentSubCortical_v2(wbfg,atlas,categoryPrior,effPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,SubCclassificationOut);
 
-[AslantclassificationOut]=bsc_segmentAslant(wbfg,atlasPath,categoryPrior);
+disp('4) bsc_segmentAslant--------------------------------------------------------------');
+[AslantclassificationOut]=bsc_segmentAslant(wbfg,atlas,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,AslantclassificationOut);
 
-[MDLFclassificationOut]=bsc_segmentMdLF_ILF_v4(wbfg,atlasPath,categoryPrior);
+disp('5) bsc_segmentMdLF_ILF_v4--------------------------------------------------------------');
+[MDLFclassificationOut]=bsc_segmentMdLF_ILF_v4(wbfg,atlas,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,MDLFclassificationOut);
 
-[pArcTPCclassificationOut]=bsc_segpArcTPC(wbfg,atlasPath);
+disp('6) bsc_segpArcTPC--------------------------------------------------------------');
+[pArcTPCclassificationOut]=bsc_segpArcTPC(wbfg,atlas);
 classificationOut=bsc_reconcileClassifications(classificationOut,pArcTPCclassificationOut);
 
-[opticclassificationOut]=bsc_opticRadiationSeg_V7(wbfg,atlasPath, 0,categoryPrior);
+disp('7) bsc_opticRadiationSeg_V7--------------------------------------------------------------');
+[opticclassificationOut]=bsc_opticRadiationSeg_V7(wbfg,atlas, 0,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,opticclassificationOut);
 
-[cerebellarclassificationOut]=bsc_segmentCerebellarTracts_v2(wbfg,atlasPath,0,categoryPrior);
+disp('8) bsc_segmentCerebellarTracts_v2--------------------------------------------------------------');
+[cerebellarclassificationOut]=bsc_segmentCerebellarTracts_v2(wbfg,atlas,0,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,cerebellarclassificationOut);
 
-[VOFclassificationOut]=bsc_segmentVOF_v4(wbfg,atlasPath,categoryPrior);
+disp('9) bsc_segmentVOF_v4--------------------------------------------------------------');
+[VOFclassificationOut]=bsc_segmentVOF_v4(wbfg,atlas,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,VOFclassificationOut);
 
-[CSTclassificationOut]=bsc_segmentCST(wbfg,atlasPath,categoryPrior);
+disp('10) bsc_segmentCST--------------------------------------------------------------');
+[CSTclassificationOut]=bsc_segmentCST(wbfg,atlas,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,CSTclassificationOut);
 
+disp('11) bsc_segmentCingulum_v3 --------------------------------------------------------------');
 %do it again to compensate for something eating it earlier
-[cingclassificationBool]=bsc_segmentCingulum_v3(wbfg,atlasPath,categoryPrior);
+[cingclassificationBool]=bsc_segmentCingulum_v3(wbfg,atlas,categoryPrior);
 classificationOut=bsc_reconcileClassifications(classificationOut,cingclassificationBool);
 
+disp('12) wma_resortClassificationStruci --------------------------------------------------------------');
 classification= wma_resortClassificationStruc(classificationOut);
 toc
 

@@ -1,9 +1,12 @@
 /N/u/brlife/git/vistasoft
-commit 9953a8177f874941e10282a748af42eba71616cc
-Author: Soichi Hayashi <Soichi Hayashi>
-Date:   Fri Aug 30 23:00:16 2019 -0400
+commit 8f8f5dccb256f3c04949bb935f4cad83e9bf5574
+Merge: c1aaef8 aedf678
+Author: Brian Wandell <wandell@stanford.edu>
+Date:   Tue Jul 9 12:31:26 2019 -0700
 
-    added check to make sure all expected fibers are loaded
+    Merge pull request #315 from vistalab/mrvParamFormatPatch
+    
+    Update mrvParamFormat.m
 /N/u/brlife/git/jsonlab
 commit 31eabbaab227d500786aaa472b9f5bbd9f082c61
 Author: Qianqian Fang <fangqq@gmail.com>
@@ -11,8 +14,11 @@ Date:   Tue Aug 20 12:20:38 2019 -0400
 
     fix table transpose issue for uniform type tables
 /N/u/brlife/git/wma_tools
-commit 36eec2c861039e6588f85bee6330f91f17c5c2e4
-Author: Soichi Hayashi <Soichi Hayashi>
-Date:   Sat Aug 31 16:38:31 2019 -0400
+commit 0b93cd08c73d1fc98a4c50ec6d2087fe96737b97
+Merge: 1c5dfac e75d610
+Author: Daniel Bullock <iisdanbul@gmail.com>
+Date:   Mon Aug 26 12:51:09 2019 -0400
 
-    refactored atlasPath
+    Merge pull request #7 from bacaron/patch-1
+    
+    Update bsc_LoadAndParseFiberStructure.m
