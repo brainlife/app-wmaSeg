@@ -12,7 +12,7 @@ if not os.path.exists("classification/surfaces"):
 #lut = pd.read_csv('FreeSurferColorLUT.csv')
 with open("labels.json") as f:
     labels = json.load(f)
-img_path = 'freesurfer/mri/aparc+aseg.nii.gz'
+img_path = 'aparc+aseg.nii.gz'
 
 # import the binary nifti image
 print("loading %s" % img_path)
