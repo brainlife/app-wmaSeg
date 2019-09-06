@@ -7,6 +7,8 @@ tracts
 build.m
 freesurfer
 *.nii.gz
+classification
 license.txt
 test.m
 testdata
+barn
