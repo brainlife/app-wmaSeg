@@ -18,7 +18,6 @@ classificationOut.index=zeros(length(wbfg.fibers),1);
 disp('creating priors')   
 [categoryPrior] =bsc_streamlineCategoryPriors_v6(wbfg,atlas,2);
 [~, effPrior] =bsc_streamlineGeometryPriors(wbfg);
-disp('prior creation complete')
 
 disp('1) bsc_segmentAntPostTracts_v3--------------------------------------------------------------');
 [AntPostclassificationOut]=bsc_segmentAntPostTracts_v3(wbfg,atlas,categoryPrior,effPrior);
