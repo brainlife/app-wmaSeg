@@ -11,10 +11,10 @@ Date:   Fri Sep 6 16:23:49 2019 +0000
 
     cleaner handling in case of empty fg.fibers
 /N/u/brlife/git/wma_tools
-commit fdbd195884768a63da34e0c348535ca07e93ff00
+commit dac14974580276c13fc92c7f3ef68ea4a6402db3
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Oct 8 14:41:47 2019 -0400
+Date:   Wed Oct 16 18:12:51 2019 +0200
 
-    made robust to streamlines of length 1
+    actually impliment robust to length 1
     
-    in the event that a streamline enters with a single node, which shouldn't happen if garbage isn't being passed, previously this would read a length of 3 rather than 1.  Now it reads correctly as 1 and selects midpoint the single node.
+    last edit didn't actually fix length 1 edge case.  This one does.
