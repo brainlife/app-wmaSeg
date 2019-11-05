@@ -1,4 +1,4 @@
 {
-    "freesurfer": "/N/dc2/scratch/hayashis/testdata/100206.freesurfer/output",
-    "track": "/N/dc2/scratch/hayashis/testdata/100206.track-tck/track.tck"
+    "freesurfer": "testdata/output",
+    "track": "testdata/track.tck"
 }

@@ -11,10 +11,10 @@ Date:   Fri Sep 6 16:23:49 2019 +0000
 
     cleaner handling in case of empty fg.fibers
 /N/u/brlife/git/wma_tools
-commit dac14974580276c13fc92c7f3ef68ea4a6402db3
+commit 17a429fa248a6c7f88fac33e7d7a2b53dfafe5ea
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Wed Oct 16 18:12:51 2019 +0200
+Date:   Tue Nov 5 11:39:42 2019 -0500
 
-    actually impliment robust to length 1
+    robust against length 1
     
-    last edit didn't actually fix length 1 edge case.  This one does.
+    Fixed another issue with length 1 streamlines.  May still be an issue in other code for streamlines length 2
