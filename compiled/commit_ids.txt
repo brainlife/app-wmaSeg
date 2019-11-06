@@ -11,10 +11,8 @@ Date:   Fri Sep 6 16:23:49 2019 +0000
 
     cleaner handling in case of empty fg.fibers
 /N/u/brlife/git/wma_tools
-commit 17a429fa248a6c7f88fac33e7d7a2b53dfafe5ea
+commit 7bd4087e10ec83a6ac6876e2445112102711a0f3
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Nov 5 11:39:42 2019 -0500
+Date:   Wed Nov 6 14:20:55 2019 -0500
 
-    robust against length 1
-    
-    Fixed another issue with length 1 streamlines.  May still be an issue in other code for streamlines length 2
+    Made robust against streamlines shorter than length 5
