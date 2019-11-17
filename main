@@ -10,7 +10,7 @@ echo $FREESURFER_LICENSE > license.txt
 if [ ! -f aparc+aseg.nii.gz ]; then
     echo "converting aparc.a2009+aseg file to nifti"
     time singularity exec -e -B `pwd`/license.txt:/usr/local/freesurfer/license.txt \
-	docker://brainlife/freesurfer_on_mcr:6.0.2 ./convertaseg.sh
+        docker://brainlife/freesurfer_on_mcr:6.0.2 ./convertaseg.sh
 fi
 
 echo "running segmentation"
