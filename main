@@ -7,10 +7,13 @@ rm -rf tracts
 [ -z "$FREESURFER_LICENSE" ] && echo "Please set FREESURFER_LICENSE in .bashrc" && exit 1;
 echo $FREESURFER_LICENSE > license.txt
 
+set -e
+set -x
+
 if [ ! -f aparc+aseg.nii.gz ]; then
     echo "converting aparc.a2009+aseg file to nifti"
     time singularity exec -e -B `pwd`/license.txt:/usr/local/freesurfer/license.txt \
-        docker://brainlife/freesurfer_on_mcr:6.0.2 ./convertaseg.sh
+        docker://brainlife/freesurfer:6.0.1 ./convertaseg.sh
 fi
 
 echo "running segmentation"
