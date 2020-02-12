@@ -6,11 +6,20 @@
 rm -rf tracts
 
 mkdir -p freesurfer/mri
-echo "converting aparc.a2009+aseg file to nifti"
-module load singularity 2> /dev/null
-time singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && ./convertaseg.sh"
+#echo "converting aparc.a2009+aseg file to nifti"
+#module load singularity 2> /dev/null
+#time singularity exec -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && ./convertaseg.sh"
 
-#TODO..
+[ -z "$FREESURFER_LICENSE" ] && echo "Please set FREESURFER_LICENSE in .bashrc" && exit 1;
+echo $FREESURFER_LICENSE > license.txt
+
+if [ ! -f freesurfer/mri/aparc+aseg.nii.gz ]; then
+    echo "converting aparc.a2009+aseg file to nifti"
+    #time singularity exec --writable -e docker://brainlife/freesurfer:6.0.0 bash -c "echo $FREESURFER_LICENSE > /usr/local/freesurfer/license.txt && ./convertaseg.sh"
+    time singularity exec -e -B `pwd`/license.txt:/usr/local/freesurfer/license.txt \
+        docker://brainlife/freesurfer_on_mcr:6.0.2 ./convertaseg.sh
+fi
+
 
 cp config.json config.original.json
 jq '.["wbfg"] = .track | del(.track)' config.original.json > config.json
