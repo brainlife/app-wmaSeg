@@ -11,10 +11,10 @@ Date:   Fri Sep 6 16:23:49 2019 +0000
 
     cleaner handling in case of empty fg.fibers
 /N/u/brlife/git/wma_tools
-commit a0c430694a1e39d1975dac372347733c7cd69d0e
-Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Sun Nov 17 15:15:02 2019 -0500
+commit ae863769e7e732c3bcf730f30ac13a59be402b8d
+Author: Daniel Bullock <iisdanbul@gmail.com>
+Date:   Sun Feb 16 17:41:43 2020 -0500
 
-    doesn't assume node spacing any more
+    fixed indexing issue
     
-    previously nodespacing was presumed to be 1.  This could lead to problems when using planar ROIs on fiber groups with internode distances greater than 2*minDist in (https://github.com/vistalab/vistasoft/blob/7253b379582613268b1ee6e2ae159ae60199e3dd/mrDiffusion/fiber/dtiIntersectFibersWithRoi.m#L61), where minDist was .87.  Now computes from average internode distance of streamline 1.  Has a bit of wiggle room with the use of .6 as a modifier of this distance.
+    fixed indexing issue with this line.  Note, other versions of this function do not have this issue.  Recommend replacing instances of this function with v4 https://github.com/DanNBullock/wma_tools/blob/master/bsc_makeFGsFromClassification_v4.m
