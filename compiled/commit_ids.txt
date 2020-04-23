@@ -11,8 +11,8 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit d33567f769f78861522ffcc20ac5a422405f718f
+commit fdc1bb6fc1bdd9c4f6f2e145e4195eda1d2511b9
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Apr 14 19:33:15 2020 -0400
+Date:   Thu Apr 23 16:03:15 2020 -0400
 
-    initial draft of volume proportion and bounding box computation
+    fixed indexing issue
