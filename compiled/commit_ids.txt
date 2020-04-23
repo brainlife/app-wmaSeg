@@ -5,16 +5,14 @@ Date:   Tue Aug 20 12:20:38 2019 -0400
 
     fix table transpose issue for uniform type tables
 /N/u/hayashis/git/vistasoft
-commit a517bdce344e25f08504ede1bf532d8d2626b0b8
+commit dd1b242d110f5748e64aae82de6604109b016434
 Author: Soichi Hayashi <hayashis@iu.edu>
-Date:   Fri Sep 6 16:23:49 2019 +0000
+Date:   Thu Apr 23 20:36:14 2020 +0000
 
-    cleaner handling in case of empty fg.fibers
+    fixed typo
 /N/u/brlife/git/wma_tools
-commit ae863769e7e732c3bcf730f30ac13a59be402b8d
-Author: Daniel Bullock <iisdanbul@gmail.com>
-Date:   Sun Feb 16 17:41:43 2020 -0500
+commit d33567f769f78861522ffcc20ac5a422405f718f
+Author: Daniel Bullock <dnbulloc@iu.edu>
+Date:   Tue Apr 14 19:33:15 2020 -0400
 
-    fixed indexing issue
-    
-    fixed indexing issue with this line.  Note, other versions of this function do not have this issue.  Recommend replacing instances of this function with v4 https://github.com/DanNBullock/wma_tools/blob/master/bsc_makeFGsFromClassification_v4.m
+    initial draft of volume proportion and bounding box computation
