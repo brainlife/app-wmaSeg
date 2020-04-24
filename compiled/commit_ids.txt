@@ -11,8 +11,8 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit fdc1bb6fc1bdd9c4f6f2e145e4195eda1d2511b9
+commit 4dabe726dc9c8f416b73e1d2542283d9ab03fc43
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Thu Apr 23 16:03:15 2020 -0400
+Date:   Thu Apr 23 18:20:35 2020 -0400
 
-    fixed indexing issue
+    removed errant noisy variable call
