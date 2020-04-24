@@ -86,6 +86,9 @@ barlayout = struct;
 barlayout.xaxis = struct;
 barlayout.xaxis.tickfont = struct;
 barlayout.xaxis.tickfont.size = 8;
+barlayout.yaxis = struct;
+barlayout.yaxis.type = 'log';
+barlayout.yaxis.autorange = true;
 
 barlayout.barmode = 'group';
 barplot = struct;
