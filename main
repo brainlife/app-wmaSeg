@@ -20,8 +20,6 @@ if [ ! -f aparc+aseg.nii.gz ]; then
     singularity exec -e docker://brainlife/fsl fslreorient2std aparc.a2009s+aseg.original.nii.gz aparc.a2009s+aseg.nii.gz
 fi
 
-exit
-
 echo "running segmentation"
 #singularity exec -e docker://brainlife/mcr:neurodebian1604-r2017a ./compiled/main
 singularity exec -e docker://brainlife/mcr:r2019a ./compiled/main
