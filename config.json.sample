@@ -1,4 +1,4 @@
 {
-    "freesurfer": "testdata/output",
-    "track": "testdata/track.tck"
+    "freesurfer": "testdata/maria.failed/output",
+    "track": "testdata/maria.failed/track.tck"
 }
