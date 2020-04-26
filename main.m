@@ -9,7 +9,10 @@ end
 
 config = loadjson('config.json');
 wbfg = fgRead(config.track);
-atlas=niftiRead('aparc.a2009s+aseg.nii.gz');
+atlas_raw=niftiRead('aparc.a2009s+aseg.nii.gz');
+
+disp('bsc_inflateRelabelIslands ------------------------------------');
+atlas=bsc_inflateRelabelIslands(atlas_raw);
 
 classificationOut=[];
 classificationOut.names=[];
