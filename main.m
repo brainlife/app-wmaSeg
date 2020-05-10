@@ -75,7 +75,7 @@ mkdir('classification')
 save('classification/classification.mat','classification');
 
 fg_classified = bsc_makeFGsFromClassification_v4(classification, wbfg);
-generate_productjson(fg_classified);
+%generate_productjson(fg_classified);
 
 tractspath='classification/tracts';
 mkdir(tractspath);

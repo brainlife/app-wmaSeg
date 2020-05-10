@@ -11,8 +11,8 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit 76681dcdcb62ccbb47d15b20def6222118537b93
+commit 0044ef8a6c5ccce6fda93352e11b3cf983e06bb0
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Sat Apr 25 13:28:05 2020 -0400
+Date:   Tue Apr 28 12:26:16 2020 -0400
 
-    fixed faulty assumption with planar roi creation
+    removed keyboard
