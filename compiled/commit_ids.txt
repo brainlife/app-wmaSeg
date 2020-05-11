@@ -11,8 +11,9 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit 0044ef8a6c5ccce6fda93352e11b3cf983e06bb0
+commit 9edbe42bbf1b1698206db0c2d5ea1256263e125e
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Apr 28 12:26:16 2020 -0400
+Date:   Sun May 10 18:41:14 2020 -0400
 
-    removed keyboard
+    fixed improper indexing
+    previously, improper indexing was leading to (1) creation of redundant outputs (where none previously existed) and (2) failure to condence redundant tract classification inputs.
