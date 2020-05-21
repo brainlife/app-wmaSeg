@@ -11,9 +11,9 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit 9edbe42bbf1b1698206db0c2d5ea1256263e125e
+commit 372b07a9785b2749ecd40de0e052c1dc09d2c105
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Sun May 10 18:41:14 2020 -0400
+Date:   Tue May 19 18:06:36 2020 -0400
 
-    fixed improper indexing
-    previously, improper indexing was leading to (1) creation of redundant outputs (where none previously existed) and (2) failure to condence redundant tract classification inputs.
+    fixed edge case for empty vote
+    in the event that no voxel wins the vote [because all candidates are "to be droppped"] default action is to just go ahead and set that voxel to 0
