@@ -11,9 +11,11 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit 372b07a9785b2749ecd40de0e052c1dc09d2c105
+commit 6abb7965adaee9551db63f9f7b2900fad5cd9515
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue May 19 18:06:36 2020 -0400
+Date:   Thu May 21 16:03:34 2020 -0400
 
-    fixed edge case for empty vote
-    in the event that no voxel wins the vote [because all candidates are "to be droppped"] default action is to just go ahead and set that voxel to 0
+    removed mask failure inclusion
+    previously mask failure was added to accomidate poor
+    segmentations (i.e. mrtrix 2).  Should be able to find
+    sufficient streamlines without this via mrtrix3
