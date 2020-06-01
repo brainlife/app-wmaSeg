@@ -12,7 +12,10 @@ wbfg = fgRead(config.track);
 atlas_raw=niftiRead('aparc.a2009s+aseg.nii.gz');
 
 disp('bsc_inflateRelabelIslands ------------------------------------');
-atlas=bsc_inflateRelabelIslands(atlas_raw);
+%atlas=bsc_inflateRelabelIslands(atlas_raw);
+
+%Dan suggested to bypass bsc_inflateRelabelIslands for issue #17
+atlas=atlas_raw;
 
 classificationOut=[];
 classificationOut.names=[];
