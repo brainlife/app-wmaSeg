@@ -13,6 +13,7 @@ atlas_raw=niftiRead('aparc.a2009s+aseg.nii.gz');
 
 disp('bsc_inflateRelabelIslands ------------------------------------');
 %atlas=bsc_inflateRelabelIslands(atlas_raw);
+[atlas] = fnDeislandLabels_v3(atlas_raw,5,0)
 
 %Dan suggested to bypass bsc_inflateRelabelIslands for issue #17
 atlas=atlas_raw;
