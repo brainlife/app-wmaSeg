@@ -11,11 +11,9 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit 6abb7965adaee9551db63f9f7b2900fad5cd9515
+commit 4b70b7c4f1435ae92068777fc5adbbe9e58e65d8
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Thu May 21 16:03:34 2020 -0400
+Date:   Tue Jun 2 23:57:18 2020 -0400
 
-    removed mask failure inclusion
-    previously mask failure was added to accomidate poor
-    segmentations (i.e. mrtrix 2).  Should be able to find
-    sufficient streamlines without this via mrtrix3
+    finally, a tentative slf segmentation
+    good first pass, maybe slf 2 can be shaped up a bit in future releases, for now, seems good
