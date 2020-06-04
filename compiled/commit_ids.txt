@@ -11,9 +11,9 @@ Date:   Thu Apr 23 20:36:14 2020 +0000
 
     fixed typo
 /N/u/brlife/git/wma_tools
-commit 4b70b7c4f1435ae92068777fc5adbbe9e58e65d8
+commit bdd4532a6dee9609b95377fcb9a6d97636cf18f5
 Author: Daniel Bullock <dnbulloc@iu.edu>
-Date:   Tue Jun 2 23:57:18 2020 -0400
+Date:   Thu Jun 4 11:32:46 2020 -0400
 
-    finally, a tentative slf segmentation
-    good first pass, maybe slf 2 can be shaped up a bit in future releases, for now, seems good
+    reimplemented endpoint criteria for uncinate
+    previously, there appears to have been endpoint criteria to ensure that endpoints were localized to the anterior frontal inferior area.  Seems to have been lost.  Reimplemented here.
