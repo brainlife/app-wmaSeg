@@ -2,9 +2,10 @@ function main()
 
 if ~isdeployed
     disp('adding paths');
-    addpath(genpath('/N/u/brlife/git/jsonlab'))
-    addpath(genpath('/N/u/hayashis/git/vistasoft'))
-    addpath(genpath('/N/u/brlife/git/wma_tools'))
+    addpath(genpath('.'))
+    %addpath(genpath('/N/u/brlife/git/jsonlab'))
+    %addpath(genpath('/N/u/hayashis/git/vistasoft'))
+    %addpath(genpath('/N/u/brlife/git/wma_tools'))
 end
 
 config = loadjson('config.json');

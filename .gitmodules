@@ -1,0 +1,9 @@
+[submodule "jsonlab"]
+	path = jsonlab
+	url = https://github.com/fangq/jsonlab.git
+[submodule "vistasoft"]
+	path = vistasoft
+	url = git@github.com:soichih/vistasoft.git
+[submodule "wma_tools"]
+	path = wma_tools
+	url = https://github.com/DanNBullock/wma_tools.git
