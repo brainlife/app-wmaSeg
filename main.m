@@ -2,7 +2,7 @@ function main()
 
 if ~isdeployed
     disp('adding paths');
-    addpath(genpath('.'))
+    addpath(genpath('b'))
     %addpath(genpath('/N/u/brlife/git/jsonlab'))
     %addpath(genpath('/N/u/hayashis/git/vistasoft'))
     %addpath(genpath('/N/u/brlife/git/wma_tools'))
@@ -105,3 +105,4 @@ disp('all done');
 
 
 end
+

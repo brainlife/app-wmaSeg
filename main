@@ -17,7 +17,7 @@ if [ ! -f aparc+aseg.nii.gz ]; then
 fi
 
 echo "running segmentation"
-singularity exec -e docker://brainlife/mcr:2020a ./compiled/main
+singularity exec -e docker://brainlife/mcr:r2019a ./compiled/main
 if [ ! -s classification/classification.mat ]; then
 	echo "output missing"
 	exit 1
