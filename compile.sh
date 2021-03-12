@@ -11,5 +11,5 @@ END
 
 matlab -nodisplay -nosplash -r build && rm build.m
 
-scp compiled/test login.expanse.sdsc.edu:/home/hayashis/test/wmaseg/compiled
+#scp compiled/test login.expanse.sdsc.edu:/home/hayashis/test/wmaseg/compiled
 
