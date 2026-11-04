@@ -12,6 +12,7 @@ Automatically segment a tractogram into major white matter tracts.
 ### Contributors
 - Soichi Hayashi (hayashis@iu.edu)
 - Franco Pestilli (franpest@indiana.edu)
+- Gabriele Amorosino (gabriele.amorosino@utexas.edu)
 
 ### Project Director
 - Franco Pestilli (franpest@indiana.edu)
@@ -28,6 +29,11 @@ Automatically segment a tractogram into major white matter tracts.
 [Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019).](https://doi.org/10.1038/s41597-019-0073-y)
 
 [Bullock, D., Takemura, H., Caiafa, C. F., Kitchell, L., McPherson, B., Caron, B., & Pestilli, F. (2019). Associative white matter connecting the dorsal and ventral posterior human cortex. Brain Structure and Function, 224(8), 2631-2660.](https://doi.org/10.1007/s00429-019-01907-8)
+
+## Versioning and Tract Taxonomy
+
+### v3.10
+- **Tract renaming:** Meyer's loop is now named **Inferior optic radiation** (`Inferior_OR`) and Baum's loop is now named **Superior optic radiation** (`Superior_OR`), following current anatomical nomenclature. Output classification structure names are updated accordingly (`left/rightInferior_OR`, `left/rightSuperior_OR`).
 
 ## Running the App 
 
