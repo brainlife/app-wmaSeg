@@ -1,82 +1,158 @@
-[![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.188-blue.svg)](https://doi.org/10.25663/brainlife.app.188)
+<p align="center">
+  <img src="wmaSeg.png" alt="Major white matter tracts segmented by wmaSeg" width="480">
+</p>
 
-![alt text](wmaSeg.png)
+<h1 align="center">White Matter Anatomy Segmentation</h1>
 
-# app-wmaSeg
-Automatically segment a tractogram into major white matter tracts.
+<p align="center">
+  A white matter classification of the major tracts in a whole-brain tractogram, from anatomical rules applied to the FreeSurfer Destrieux parcellation with wma_tools.
+</p>
 
-### Authors
-- Daniel Bullock (dnbulloc@iu.edu)
+<p align="center">
+  <a href="https://github.com/brainlife/abcd-spec"><img src="https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg" alt="ABCD Spec v1.1"></a>
+  <a href="https://doi.org/10.25663/brainlife.app.188"><img src="https://img.shields.io/badge/Brainlife-brainlife.app.188-blue.svg" alt="Run on brainlife.io"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
+</p>
 
-### Contributors
-- Soichi Hayashi (hayashis@iu.edu)
-- Franco Pestilli (franpest@indiana.edu)
-- Gabriele Amorosino (gabriele.amorosino@utexas.edu)
+## 🧠 At a glance
 
-### Project Director
-- Franco Pestilli (franpest@indiana.edu)
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
-### Funding
-[![NSF-BCS-1734853](https://img.shields.io/badge/NSF_BCS-1734853-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1734853)
-[![NSF-BCS-1636893](https://img.shields.io/badge/NSF_BCS-1636893-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1636893)
-[![NSF-ACI-1916518](https://img.shields.io/badge/NSF_ACI-1916518-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1916518)
-[![NSF-IIS-1912270](https://img.shields.io/badge/NSF_IIS-1912270-blue.svg)](https://nsf.gov/awardsearch/showAward?AWD_ID=1912270)
-[![NIH-NIBIB-R01EB029272](https://img.shields.io/badge/NIH_NIBIB-R01EB029272-green.svg)](https://grantome.com/grant/NIH/R01-EB029272-01)
-[![NIMH-T32-5T32MH103213-05](https://img.shields.io/badge/NIMH_T32-5T32MH103213--05-blue.svg)](https://projectreporter.nih.gov/project_info_description.cfm?aid=9725739)
+> **Segments major white matter tracts from a whole-brain tractogram using the FreeSurfer Destrieux parcellation and anatomical rules in MATLAB wma_tools, and outputs a white matter classification.**
 
-### References 
-[Avesani, P., McPherson, B., Hayashi, S. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019).](https://doi.org/10.1038/s41597-019-0073-y)
+An automated segmentation of major white matter tracts from an input whole brain tractography. Utilizes a WMQL-like approach (https://tract-querier.readthedocs.io/en/latest/) to segment streamlines, as documented in Bullock et al. 2019 (https://doi.org/10.1007/s00429-019-01907-8). Makes extensive use of the wma tools library (https://github.com/DanNBullock/wma_tools).
 
-[Bullock, D., Takemura, H., Caiafa, C. F., Kitchell, L., McPherson, B., Caron, B., & Pestilli, F. (2019). Associative white matter connecting the dorsal and ventral posterior human cortex. Brain Structure and Function, 224(8), 2631-2660.](https://doi.org/10.1007/s00429-019-01907-8)
+| | |
+|---|---|
+| 📥 **Inputs** | `neuro/freesurfer` · `neuro/track/tck` |
+| 📤 **Outputs** | `neuro/wmc` |
+| 🐳 **Container** | `brainlife/freesurfer-mini:6.0.1` |
+| ⚙️ **Resources** | 4 CPUs · 28 GB memory · 12 h walltime |
+| 🔑 **Requires** | `FREESURFER_LICENSE` |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188) |
 
-## Versioning and Tract Taxonomy
+#### 📥 Inputs
 
-### v3.10
-- **Tract renaming:** Meyer's loop is now named **Inferior optic radiation** (`Inferior_OR`) and Baum's loop is now named **Superior optic radiation** (`Superior_OR`), following current anatomical nomenclature. Output classification structure names are updated accordingly (`left/rightInferior_OR`, `left/rightSuperior_OR`).
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `freesurfer` | `neuro/freesurfer` | yes | FreeSurfer subject directory; aparc.a2009s+aseg (Destrieux) is converted to NIfTI and used as the anatomical atlas. |
+| `tracks` | `neuro/track/tck` | yes | Whole-brain tractogram (.tck). Must be in the same space as the FreeSurfer anatomy. |
 
-## Running the App 
+#### 📤 Outputs
 
-### On Brainlife.io
+| Output | Datatype | Description |
+|---|---|---|
+| `classification` | `neuro/wmc` | White matter classification (classification.mat with tract names and per-streamline index), tract JSON files and cortical surfaces for visualisation. |
 
-Visit https://doi.org/10.25663/brainlife.app.188 to run this app on the brainlife.io platform.  Requires a freesurfer input (as it makes use of the 2009 parcellation) and an input tractography.
+<!-- brainlife-app:end -->
 
-### Running Locally (on your machine) using singularity & docker
+## 🏷️ Versions on brainlife.io
 
-Because this is compiled code which runs on singularity, you can download the repo and run it locally with minimal setup.  Ensure that you have singularity and freesurfer set up locally (freesurfer setup not necessary if relevant parcellation files have already been converted to nii.gz).
+Each version is a separate App on brainlife.io, built from its own branch of this repository.
 
-### Running Locally (on your machine)
+| App | Output datatype | Branch | Run it | Status |
+|---|---|---|---|---|
+| White Matter Anatomy Segmentation | `neuro/wmc` | [`3.9`](https://github.com/brainlife/app-wmaSeg/tree/3.9) | [doi:10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188) | current |
+| Posterior Associative White Matter Tracts Segmentation (pArc, TPC, MdLF-SPL, MdLF-Ang, VOF) | `neuro/wmc-deprecated` | [`1.4`](https://github.com/brainlife/app-wmaSeg/tree/1.4) | [doi:10.25663/bl.app.46](https://doi.org/10.25663/bl.app.46) | available |
+| White Matter Anatomy Segmentation | `neuro/wmc-deprecated` | [`1.8`](https://github.com/brainlife/app-wmaSeg/tree/1.8) | [doi:10.25663/bl.app.41](https://doi.org/10.25663/bl.app.41) | deprecated |
+| White Matter Anatomy Segmentation with LiFE (takes a `neuro/LiFE` input) | `neuro/wmc-deprecated` | [`1.4`](https://github.com/brainlife/app-wmaSeg/tree/1.4) | [doi:10.25663/bl.app.40](https://doi.org/10.25663/bl.app.40) | deprecated |
 
-Pull the wma toolkit repo:  https://github.com/DanNBullock/wma_tools
+### Tract taxonomy
 
-Ensure that vistasoft (https://github.com/vistalab/vistasoft)and spm (https://www.fil.ion.ucl.ac.uk/spm/software/ ; tested with spm8) are installed.
+The `3.10` branch, which is not yet registered as an App, updates the wma_tools source to follow current anatomical nomenclature: Meyer's loop becomes the **Inferior optic radiation** (`Inferior_OR`) and Baum's loop the **Superior optic radiation** (`Superior_OR`), so the classification names become `left/rightInferior_OR` and `left/rightSuperior_OR`. The current App (`3.9`) uses the earlier names.
 
-Run: https://github.com/DanNBullock/wma_tools/blob/master/wma_segMajTracks_BL_v2.m , but take care to ensure that the addpath-genpath statements are relevant to your local setup.
+## 🚀 Running the App
 
-Utilize a config.json setup that is analagous to the one contained within this repo, listed as a sample.
+### ☁️ On brainlife.io
 
-### Sample Datasets
+Open the App at [doi.org/10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188), choose a `neuro/freesurfer` dataset (the App uses its Destrieux `aparc.a2009s+aseg` parcellation) and a whole-brain tractogram (`neuro/track/tck`) of the same subject in the same space, and press **Execute**. The classification is archived as a `neuro/wmc` dataset.
 
-Visit brainlife.io and explore the following data sets to find viable freesurfer and tractography inputs:
+The segmentation uses a WMQL-like approach ([tract-querier](https://tract-querier.readthedocs.io/en/latest/)), documented in Bullock et al. (2019), and relies on the [wma_tools](https://github.com/DanNBullock/wma_tools) library. After relabelling islands in the parcellation and computing streamline category and geometry priors, it segments, in order: anterior-posterior tracts, corpus callosum, subcortical tracts, frontal aslant, MdLF and ILF, pArc and TPC, optic radiations, cerebellar tracts, VOF, corticospinal tract and cingulum.
 
-03D: https://brainlife.io/pub/5a0f0fad2c214c9ba8624376
+### 💻 Locally
 
-HCP freesurfer:  https://brainlife.io/project/5941a225f876b000210c11e5/detail
-HCP tractography:  https://brainlife.io/project/5c3caea0a6747b0036dcbf9a/
+You need [Singularity/Apptainer](https://apptainer.org/), [`jq`](https://jqlang.github.io/jq/) and a [FreeSurfer license](https://surfer.nmr.mgh.harvard.edu/registration.html). The segmentation is compiled MATLAB code that runs in `brainlife/mcr:r2019a`; FreeSurfer (`brainlife/freesurfer-mini:6.0.1`) converts the parcellation and `brainlife/pythonvtk:1.1` writes the surfaces.
 
+1. Clone this repository and check out the App branch: `git checkout 3.9`.
+2. Create `config.json` with the paths to your inputs (see `config.json.sample`):
 
-## Output
+   ```json
+   {
+       "freesurfer": "testdata/freesurfer/output",
+       "track": "testdata/track/track.tck"
+   }
+   ```
 
-The relevant output for this application is a classification structure.  The classification structure is a .mat file which contains a matlab structure (entitled classification) with two fields:  names and index.  The names field lists the names of tracts which were identified by this process as strings.  The index field is a 1 dimensional vector containing zeros for all unidentified streamlines, and integer index values corresponding to streamlines' membership in the corresponding structure of the names vector.
+3. Export your license and run the App:
 
-#### Product.json
+   ```bash
+   export FREESURFER_LICENSE="$(cat ~/freesurfer/license.txt)"
+   ./main
+   ```
 
-Not relevant for this App as it does not geenrate processed data. 
+To run the MATLAB source instead, get [wma_tools](https://github.com/DanNBullock/wma_tools), [vistasoft](https://github.com/vistalab/vistasoft) and [SPM](https://www.fil.ion.ucl.ac.uk/spm/software/) (tested with SPM8); they are also included here as git submodules. Run `main.m`, or [`wma_segMajTracks_BL_v2.m`](https://github.com/DanNBullock/wma_tools/blob/master/wma_segMajTracks_BL_v2.m), after adjusting the `addpath(genpath(...))` statements to your setup.
 
-### Dependencies
+### 🧪 Sample data
 
-This App only requires [singularity](https://www.sylabs.io/singularity/) and (in some cases) Freesurfer to run. If you don't have singularity, you will need to install following dependencies.  
+Viable FreeSurfer and tractography inputs on brainlife.io:
 
-https://singularity.lbl.gov/docs-installation
-https://surfer.nmr.mgh.harvard.edu/fswiki/DownloadAndInstall
- 
+- O3D: <https://brainlife.io/pub/5a0f0fad2c214c9ba8624376>
+- HCP FreeSurfer: <https://brainlife.io/project/5941a225f876b000210c11e5/detail>
+- HCP tractography: <https://brainlife.io/project/5c3caea0a6747b0036dcbf9a/>
+
+## 📦 Outputs
+
+```text
+classification/
+├── classification.mat   MATLAB struct `classification` with `names` and `index`
+├── tracts/              one JSON per tract (up to 1000 streamlines each) and tracts.json
+└── surfaces/            cortical surfaces (VTK) from aparc+aseg, with index.json
+```
+
+`names` lists the tracts identified. `index` has one entry per streamline of the input tractogram: zero for unassigned streamlines, otherwise the position of the streamline's tract in `names`.
+
+## 🩺 Troubleshooting
+
+- **`Please set FREESURFER_LICENSE in .bashrc`**: export your FreeSurfer license text in `FREESURFER_LICENSE` (brainlife.io provides it automatically).
+- **`output missing`**: `classification/classification.mat` was not written. Check the logs, and make sure the tractogram and the FreeSurfer output are from the same subject and in the same space.
+
+## 📚 Citing
+
+> [!TIP]
+> If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
+
+- Bullock D, Takemura H, Caiafa CF, Kitchell L, McPherson B, Caron B, Pestilli F. Associative white matter connecting the dorsal and ventral posterior human cortex. *Brain Structure and Function* 224(8):2631–2660 (2019). [doi:10.1007/s00429-019-01907-8](https://doi.org/10.1007/s00429-019-01907-8)
+- White Matter Anatomy Segmentation. brainlife.io App. [doi:10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188)
+- Avesani P, McPherson B, Hayashi S, et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+- Fischl. FreeSurfer. *NeuroImage* 62:774-781 (2012). [doi:10.1016/j.neuroimage.2012.01.021](https://doi.org/10.1016/j.neuroimage.2012.01.021)
+- Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
+
+## 👥 Authors
+
+- Daniel Bullock
+- Franco Pestilli (project director)
+
+**Contributors:** Soichi Hayashi, Gabriele Amorosino
+
+## 💰 Funding
+
+[![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
+[![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
+[![NIH-NINDS-UM1NS132207](https://img.shields.io/badge/NIH_NINDS-UM1NS132207-green.svg)](https://reporter.nih.gov/project-details/11411328)
+[![NIH-NIBIB-R01EB029272](https://img.shields.io/badge/NIH_NIBIB-R01EB029272-green.svg)](https://reporter.nih.gov/project-details/10262925)
+[![NIH-NIBIB-R01EB030896](https://img.shields.io/badge/NIH_NIBIB-R01EB030896-green.svg)](https://reporter.nih.gov/project-details/10428625)
+[![NIH-NIMH-R01MH126699](https://img.shields.io/badge/NIH_NIMH-R01MH126699-green.svg)](https://reporter.nih.gov/project-details/10460628)
+[![NIH-NIDCD-R01DC020088](https://img.shields.io/badge/NIH_NIDCD-R01DC020088-green.svg)](https://reporter.nih.gov/project-details/11140284)
+[![NSF-BCS-1734853](https://img.shields.io/badge/NSF_BCS-1734853-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1734853)
+[![NSF-BCS-2203524](https://img.shields.io/badge/NSF_BCS-2203524-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2203524)
+[![NSF-IIS-1636893](https://img.shields.io/badge/NSF_IIS-1636893-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1636893)
+[![NSF-OAC-2148729](https://img.shields.io/badge/NSF_OAC-2148729-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2148729)
+[![NSF-IIS-1912270](https://img.shields.io/badge/NSF_IIS-1912270-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1912270)
+[![NSF-IIS-2148700](https://img.shields.io/badge/NSF_IIS-2148700-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2148700)
+[![NSF-OAC-1916518](https://img.shields.io/badge/NSF_OAC-1916518-blue.svg)](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1916518)
+
+<sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
+
+## ⚖️ License
+
+[MIT](LICENSE). wma_tools, vistasoft and FreeSurfer are distributed under their own licenses.
