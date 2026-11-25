@@ -14,7 +14,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" alt="MIT license"></a>
 </p>
 
-## 🧠 At a glance
+## At a glance
 
 <!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
 
@@ -24,21 +24,21 @@ An automated segmentation of major white matter tracts from an input whole brain
 
 | | |
 |---|---|
-| 📥 **Inputs** | `neuro/freesurfer` · `neuro/track/tck` |
-| 📤 **Outputs** | `neuro/wmc` |
-| 🐳 **Container** | `brainlife/freesurfer-mini:6.0.1` |
-| ⚙️ **Resources** | 4 CPUs · 28 GB memory · 12 h walltime |
-| 🔑 **Requires** | `FREESURFER_LICENSE` |
-| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188) |
+| **Inputs** | `neuro/freesurfer` · `neuro/track/tck` |
+| **Outputs** | `neuro/wmc` |
+| **Container** | `brainlife/freesurfer-mini:6.0.1` |
+| **Resources** | 4 CPUs · 28 GB memory · 12 h walltime |
+| **Requires** | `FREESURFER_LICENSE` |
+| **Run it** | [doi.org/10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188) |
 
-#### 📥 Inputs
+#### Inputs
 
 | Input | Datatype | Required | Description |
 |---|---|---|---|
 | `freesurfer` | `neuro/freesurfer` | yes | FreeSurfer subject directory; aparc.a2009s+aseg (Destrieux) is converted to NIfTI and used as the anatomical atlas. |
 | `tracks` | `neuro/track/tck` | yes | Whole-brain tractogram (.tck). Must be in the same space as the FreeSurfer anatomy. |
 
-#### 📤 Outputs
+#### Outputs
 
 | Output | Datatype | Description |
 |---|---|---|
@@ -46,7 +46,7 @@ An automated segmentation of major white matter tracts from an input whole brain
 
 <!-- brainlife-app:end -->
 
-## 🏷️ Versions on brainlife.io
+## Versions on brainlife.io
 
 Each version is a separate App on brainlife.io, built from its own branch of this repository.
 
@@ -61,15 +61,15 @@ Each version is a separate App on brainlife.io, built from its own branch of thi
 
 The `3.10` branch, which is not yet registered as an App, updates the wma_tools source to follow current anatomical nomenclature: Meyer's loop becomes the **Inferior optic radiation** (`Inferior_OR`) and Baum's loop the **Superior optic radiation** (`Superior_OR`), so the classification names become `left/rightInferior_OR` and `left/rightSuperior_OR`. The current App (`3.9`) uses the earlier names.
 
-## 🚀 Running the App
+## Running the App
 
-### ☁️ On brainlife.io
+### On brainlife.io
 
 Open the App at [doi.org/10.25663/brainlife.app.188](https://doi.org/10.25663/brainlife.app.188), choose a `neuro/freesurfer` dataset (the App uses its Destrieux `aparc.a2009s+aseg` parcellation) and a whole-brain tractogram (`neuro/track/tck`) of the same subject in the same space, and press **Execute**. The classification is archived as a `neuro/wmc` dataset.
 
 The segmentation uses a WMQL-like approach ([tract-querier](https://tract-querier.readthedocs.io/en/latest/)), documented in Bullock et al. (2019), and relies on the [wma_tools](https://github.com/DanNBullock/wma_tools) library. After relabelling islands in the parcellation and computing streamline category and geometry priors, it segments, in order: anterior-posterior tracts, corpus callosum, subcortical tracts, frontal aslant, MdLF and ILF, pArc and TPC, optic radiations, cerebellar tracts, VOF, corticospinal tract and cingulum.
 
-### 💻 Locally
+### Locally
 
 You need [Singularity/Apptainer](https://apptainer.org/), [`jq`](https://jqlang.github.io/jq/) and a [FreeSurfer license](https://surfer.nmr.mgh.harvard.edu/registration.html). The segmentation is compiled MATLAB code that runs in `brainlife/mcr:r2019a`; FreeSurfer (`brainlife/freesurfer-mini:6.0.1`) converts the parcellation and `brainlife/pythonvtk:1.1` writes the surfaces.
 
@@ -92,7 +92,7 @@ You need [Singularity/Apptainer](https://apptainer.org/), [`jq`](https://jqlang.
 
 To run the MATLAB source instead, get [wma_tools](https://github.com/DanNBullock/wma_tools), [vistasoft](https://github.com/vistalab/vistasoft) and [SPM](https://www.fil.ion.ucl.ac.uk/spm/software/) (tested with SPM8); they are also included here as git submodules. Run `main.m`, or [`wma_segMajTracks_BL_v2.m`](https://github.com/DanNBullock/wma_tools/blob/master/wma_segMajTracks_BL_v2.m), after adjusting the `addpath(genpath(...))` statements to your setup.
 
-### 🧪 Sample data
+### Sample data
 
 Viable FreeSurfer and tractography inputs on brainlife.io:
 
@@ -100,7 +100,7 @@ Viable FreeSurfer and tractography inputs on brainlife.io:
 - HCP FreeSurfer: <https://brainlife.io/project/5941a225f876b000210c11e5/detail>
 - HCP tractography: <https://brainlife.io/project/5c3caea0a6747b0036dcbf9a/>
 
-## 📦 Outputs
+## Outputs
 
 ```text
 classification/
@@ -111,12 +111,12 @@ classification/
 
 `names` lists the tracts identified. `index` has one entry per streamline of the input tractogram: zero for unassigned streamlines, otherwise the position of the streamline's tract in `names`.
 
-## 🩺 Troubleshooting
+## Troubleshooting
 
 - **`Please set FREESURFER_LICENSE in .bashrc`**: export your FreeSurfer license text in `FREESURFER_LICENSE` (brainlife.io provides it automatically).
 - **`output missing`**: `classification/classification.mat` was not written. Check the logs, and make sure the tractogram and the FreeSurfer output are from the same subject and in the same space.
 
-## 📚 Citing
+## Citing
 
 > [!TIP]
 > If you use this App in your work, please cite the App, the software it builds on and brainlife.io (below). GitHub's **Cite this repository** button gives the App citation in APA and BibTeX.
@@ -127,14 +127,14 @@ classification/
 - Fischl. FreeSurfer. *NeuroImage* 62:774-781 (2012). [doi:10.1016/j.neuroimage.2012.01.021](https://doi.org/10.1016/j.neuroimage.2012.01.021)
 - Hayashi S, Caron BA, Heinsfeld AS, et al. brainlife.io: a decentralized and open-source cloud platform to support neuroscience research. *Nature Methods* 21:809–813 (2024). [doi:10.1038/s41592-024-02237-2](https://doi.org/10.1038/s41592-024-02237-2)
 
-## 👥 Authors
+## Authors
 
 - Daniel Bullock
 - Franco Pestilli (project director)
 
 **Contributors:** Soichi Hayashi, Gabriele Amorosino
 
-## 💰 Funding
+## Funding
 
 [![Wellcome-226486/Z/22/Z](https://img.shields.io/badge/Wellcome-226486%2FZ%2F22%2FZ-purple.svg)](https://wellcome.org/)
 [![NIH-NINDS-U24NS140384](https://img.shields.io/badge/NIH_NINDS-U24NS140384-green.svg)](https://reporter.nih.gov/project-details/11261037)
@@ -153,6 +153,6 @@ classification/
 
 <sub>brainlife.io is publicly funded, and acknowledging that support helps keep it running. This App was developed with support from Wellcome, the U.S. National Institutes of Health (including the BRAIN Initiative BRAIN CONNECTS program: The Axonal Projectome EXchange, U24NS140384, and the Center for Mesoscale Connectomics, UM1NS132207) and the U.S. National Science Foundation.</sub>
 
-## ⚖️ License
+## License
 
 [MIT](LICENSE). wma_tools, vistasoft and FreeSurfer are distributed under their own licenses.
